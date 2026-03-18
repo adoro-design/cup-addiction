@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="중독이음센터 - 알코올, 도박, 인터넷, 게임 중독에 관한 전문 회복 정보를 제공합니다." />
+  <title>회복정보 | 중독이음센터</title>
+
+  <!-- Google Fonts: Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/subpage.css" />
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════ -->
+<nav id="mainNav" class="navbar navbar-expand-md fixed-top py-0">
+  <div class="container-xl px-4">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2 py-3" href="index.html">
+      <div class="brand-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+             stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 20h10"/>
+          <path d="M10 20c5.5-2.5.8-6.4 3-9"/>
+          <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-2-3.7.7-.1 3.3-.2 4.5.3z"/>
+          <path d="M14.1 6a7 7 0 0 1 1.7 4.8c-1.6.5-4 .6-5.4-.6-.3-2 1.5-3.5 3.7-4.2z"/>
+        </svg>
+      </div>
+      <span class="brand-name">중독이음센터</span>
+    </a>
+
+    <!-- Hamburger toggle -->
+    <button class="navbar-toggler border-0 p-2" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu" aria-expanded="false" aria-label="메뉴 열기">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+           fill="none" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto align-items-md-center mb-3 mb-md-0">
+        <li class="nav-item"><a class="nav-link active" href="recovery-info.html">회복정보</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#community">커뮤니티</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#resources">전문가상담</a></li>
+        <li class="nav-item"><a class="nav-link" href="success-stories.html">성공스토리</a></li>
+      </ul>
+      <a href="index.html#resources" class="btn btn-primary-custom ms-md-3 px-4 py-2 rounded-pill">
+        무료 시작하기
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════ -->
+<section class="subpage-hero" style="background: rgba(107,158,122,0.10);">
+  <div class="container-xl px-4">
+    <div class="text-center">
+      <h1 class="subpage-hero-title fade-up">중독, 제대로 알면 이길 수 있어요</h1>
+      <p class="subpage-hero-sub fade-up fade-up-delay-1">올바른 정보가 회복의 첫걸음입니다</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CATEGORY FILTER BAR (Sticky)
+════════════════════════════════════ -->
+<div class="filter-bar-sticky">
+  <div class="container-xl px-4">
+    <div class="d-flex gap-2 overflow-auto py-1" id="categoryTabs">
+      <button class="filter-btn active" data-cat="전체">전체</button>
+      <button class="filter-btn" data-cat="알코올">알코올</button>
+      <button class="filter-btn" data-cat="도박">도박</button>
+      <button class="filter-btn" data-cat="인터넷">인터넷</button>
+      <button class="filter-btn" data-cat="게임">게임</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
+<section class="py-5" style="padding-top: 3rem !important; padding-bottom: 5rem !important;">
+  <div class="container-xl px-4">
+    <div class="row g-5">
+
+      <!-- ── 아티클 그리드 (70%) ── -->
+      <div class="col-lg-8">
+        <div class="row g-4" id="articleGrid">
+
+          <!-- Card 1 -->
+          <div class="col-sm-6 col-xl-4 article-card-wrap" data-cat="알코올">
+            <article class="info-card fade-up">
+              <div class="info-card-thumb" style="background: rgba(107,158,122,0.15);">
+                <div class="info-card-thumb-icon"></div>
+              </div>
+              <div class="info-card-body">
+                <span class="info-card-badge">알코올</span>
+                <h3 class="info-card-title">알코올 중독의 초기 신호 5가지</h3>
+                <p class="info-card-preview">일상에서 쉽게 지나칠 수 있는 알코올 중독의 초기 증상들을 알아보고, 조기에 대처하는 방법을 소개합니다.</p>
+                <button class="info-card-link">
+                  자세히 보기
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-sm-6 col-xl-4 article-card-wrap" data-cat="도박">
+            <article class="info-card fade-up fade-up-delay-1">
+              <div class="info-card-thumb" style="background: rgba(179,157,219,0.20);">
+                <div class="info-card-thumb-icon" style="background: rgba(179,157,219,0.35);"></div>
+              </div>
+              <div class="info-card-body">
+                <span class="info-card-badge">도박</span>
+                <h3 class="info-card-title">도박 중독, 금전 문제만이 아닙니다</h3>
+                <p class="info-card-preview">도박 중독이 개인과 가족에게 미치는 심리적, 사회적 영향을 이해하고 회복의 길을 찾아봅니다.</p>
+                <button class="info-card-link">
+                  자세히 보기
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-sm-6 col-xl-4 article-card-wrap" data-cat="인터넷">
+            <article class="info-card fade-up fade-up-delay-2">
+              <div class="info-card-thumb" style="background: rgba(129,212,250,0.20);">
+                <div class="info-card-thumb-icon" style="background: rgba(129,212,250,0.35);"></div>
+              </div>
+              <div class="info-card-body">
+                <span class="info-card-badge">인터넷</span>
+                <h3 class="info-card-title">디지털 디톡스의 올바른 시작</h3>
+                <p class="info-card-preview">인터넷 과의존에서 벗어나기 위한 실질적인 방법과 단계별 실천 가이드를 제공합니다.</p>
+                <button class="info-card-link">
+                  자세히 보기
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-sm-6 col-xl-4 article-card-wrap" data-cat="게임">
+            <article class="info-card fade-up">
+              <div class="info-card-thumb" style="background: rgba(165,214,167,0.20);">
+                <div class="info-card-thumb-icon" style="background: rgba(165,214,167,0.35);"></div>
+              </div>
+              <div class="info-card-body">
+                <span class="info-card-badge">게임</span>
+                <h3 class="info-card-title">게임 중독 자녀와 대화하는 법</h3>
+                <p class="info-card-preview">자녀의 게임 중독 문제를 다루는 부모를 위한 효과적인 대화 전략과 지원 방법을 안내합니다.</p>
+                <button class="info-card-link">
+                  자세히 보기
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-sm-6 col-xl-4 article-card-wrap" data-cat="알코올">
+            <article class="info-card fade-up fade-up-delay-1">
+              <div class="info-card-thumb" style="background: rgba(107,158,122,0.15);">
+                <div class="info-card-thumb-icon"></div>
+              </div>
+              <div class="info-card-body">
+                <span class="info-card-badge">알코올</span>
+                <h3 class="info-card-title">회복 후 재발 방지를 위한 생활 습관</h3>
+                <p class="info-card-preview">알코올 중독 회복 후 건강한 일상을 유지하기 위한 구체적인 생활 습관과 대처 방법을 소개합니다.</p>
+                <button class="info-card-link">
+                  자세히 보기
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-sm-6 col-xl-4 article-card-wrap" data-cat="도박">
+            <article class="info-card fade-up fade-up-delay-2">
+              <div class="info-card-thumb" style="background: rgba(179,157,219,0.20);">
+                <div class="info-card-thumb-icon" style="background: rgba(179,157,219,0.35);"></div>
+              </div>
+              <div class="info-card-body">
+                <span class="info-card-badge">도박</span>
+                <h3 class="info-card-title">온라인 도박의 위험성과 예방법</h3>
+                <p class="info-card-preview">접근성이 높아진 온라인 도박의 특성과 위험성을 이해하고, 중독을 예방하는 방법을 알아봅니다.</p>
+                <button class="info-card-link">
+                  자세히 보기
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+        </div><!-- /row articleGrid -->
+
+        <!-- 빈 결과 메시지 -->
+        <div id="noResult" class="text-center py-5 d-none">
+          <p class="text-muted">해당 카테고리의 콘텐츠가 없습니다.</p>
+        </div>
+
+      </div><!-- /col-lg-8 -->
+
+      <!-- ── 사이드바 (30%) ── -->
+      <div class="col-lg-4">
+        <div class="sticky-sidebar">
+
+          <!-- 자가진단 CTA -->
+          <div class="sidebar-card sidebar-cta-orange fade-up">
+            <h3 class="sidebar-cta-title">지금 내 상태를<br>확인해보세요</h3>
+            <p class="sidebar-cta-text">간단한 자가진단을 통해 현재 상태를 파악하고 적절한 도움을 받으세요.</p>
+            <button class="btn-sidebar-cta-orange w-100">자가진단 시작하기</button>
+          </div>
+
+          <!-- 전문가 추천 콘텐츠 -->
+          <div class="sidebar-card fade-up fade-up-delay-1">
+            <h3 class="sidebar-list-title">전문가 추천 콘텐츠</h3>
+            <ul class="sidebar-list">
+              <li class="sidebar-list-item">
+                <span class="sidebar-list-num">1</span>
+                <span class="sidebar-list-text">중독의 뇌과학: 왜 끊기 어려운가?</span>
+              </li>
+              <li class="sidebar-list-item">
+                <span class="sidebar-list-num">2</span>
+                <span class="sidebar-list-text">가족의 역할: 회복을 돕는 방법</span>
+              </li>
+              <li class="sidebar-list-item">
+                <span class="sidebar-list-num">3</span>
+                <span class="sidebar-list-text">재발 방지: 위기 상황 대처법</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 전문가 상담 배너 -->
+          <div class="sidebar-card sidebar-consult fade-up fade-up-delay-2">
+            <p class="sidebar-consult-emoji">💬</p>
+            <h4 class="sidebar-consult-title">전문 상담사와 1:1 상담</h4>
+            <p class="sidebar-consult-text">혼자 고민하지 마세요. 익명으로 전문가의 도움을 받을 수 있습니다.</p>
+            <a href="index.html#resources" class="btn-sidebar-consult w-100 d-block text-center">상담 신청하기</a>
+          </div>
+
+        </div>
+      </div><!-- /col-lg-4 -->
+
+    </div><!-- /row -->
+  </div><!-- /container -->
+</section>
+
+<!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container-xl px-4">
+    <div class="row g-4 g-lg-5 pb-5 border-bottom border-secondary border-opacity-25">
+
+      <!-- Brand Column -->
+      <div class="col-lg-4">
+        <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none mb-3">
+          <div class="brand-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-9"/>
+              <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-2-3.7.7-.1 3.3-.2 4.5.3z"/>
+              <path d="M14.1 6a7 7 0 0 1 1.7 4.8c-1.6.5-4 .6-5.4-.6-.3-2 1.5-3.5 3.7-4.2z"/>
+            </svg>
+          </div>
+          <span class="brand-name text-white">중독이음센터</span>
+        </a>
+        <p class="footer-desc">중독으로 어려움을 겪는 모든 분들의 회복을 함께합니다. 혼자가 아닙니다.</p>
+        <div class="d-flex gap-3 mt-4">
+          <!-- Instagram -->
+          <a href="#" class="footer-social" aria-label="인스타그램">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="footer-social" aria-label="유튜브">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+              <path d="m10 15 5-3-5-3z"/>
+            </svg>
+          </a>
+          <!-- KakaoTalk -->
+          <a href="#" class="footer-social" aria-label="카카오톡">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.671 1.884 4.987 4.667 6.268L5.5 20.5l4-2.5c.808.166 1.643.25 2.5.25 5.523 0 10-3.477 10-7.75S17.523 3 12 3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service Links -->
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <h6 class="footer-heading">서비스</h6>
+        <ul class="footer-links">
+          <li><a href="recovery-info.html">회복정보</a></li>
+          <li><a href="index.html#community">커뮤니티</a></li>
+          <li><a href="success-stories.html">성공스토리</a></li>
+          <li><a href="index.html#resources">전문가상담</a></li>
+        </ul>
+      </div>
+
+      <!-- Help Links -->
+      <div class="col-6 col-lg-2">
+        <h6 class="footer-heading">도움말</h6>
+        <ul class="footer-links">
+          <li><a href="#">이용방법</a></li>
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">문의하기</a></li>
+        </ul>
+      </div>
+
+      <!-- Crisis Consultation -->
+      <div class="col-lg-3">
+        <h6 class="footer-heading">위기상담</h6>
+        <div class="crisis-box">
+          <div class="crisis-label">24시간 위기상담전화</div>
+          <div class="crisis-number">1577-0199</div>
+          <div class="crisis-sub">정신건강 위기상담전화 (무료)</div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+
+    <div class="footer-bottom">
+      <p class="mb-1">© 2026 중독이음센터. All rights reserved.</p>
+      <p class="footer-disclaimer">본 서비스는 의료 서비스를 대체하지 않습니다. 전문적인 치료가 필요한 경우 의료기관을 방문하세요.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backTop" aria-label="맨 위로">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+// ── 카테고리 필터 ──
+const filterBtns = document.querySelectorAll('.filter-btn');
+const articleWraps = document.querySelectorAll('.article-card-wrap');
+const noResult = document.getElementById('noResult');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.dataset.cat;
+    let visible = 0;
+    articleWraps.forEach(wrap => {
+      const match = cat === '전체' || wrap.dataset.cat === cat;
+      wrap.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    noResult.classList.toggle('d-none', visible > 0);
+  });
+});
+</script>
+</body>
+</html>
