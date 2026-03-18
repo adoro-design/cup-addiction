@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>데모 데이터 등록 | 중독이음센터 (관리용)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+  <style>
+    body { background: #f8f9fa; font-family: 'Pretendard', sans-serif; }
+    .seed-card { background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .log-box { background: #1e1e1e; color: #a8ff78; font-family: monospace; font-size: 13px;
+               border-radius: 8px; padding: 1rem; height: 300px; overflow-y: auto; white-space: pre-wrap; }
+    .btn-seed { background: #6B9E7A; color: #fff; border: none; padding: .75rem 2rem;
+                border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; }
+    .btn-seed:hover { background: #5a8a68; }
+    .btn-clear { background: #dc3545; color: #fff; border: none; padding: .75rem 1.5rem;
+                 border-radius: 8px; font-weight: 700; cursor: pointer; }
+    .btn-clear:hover { background: #c82333; }
+    .status-badge { display: inline-block; padding: .25rem .75rem; border-radius: 20px;
+                    font-size: 13px; font-weight: 600; }
+    .status-idle    { background: #e9ecef; color: #6c757d; }
+    .status-running { background: #fff3cd; color: #856404; }
+    .status-done    { background: #d1e7dd; color: #0f5132; }
+    .status-error   { background: #f8d7da; color: #842029; }
+  </style>
+</head>
+<body>
+<div class="container py-5" style="max-width: 680px;">
+
+  <div class="seed-card">
+    <h1 class="fs-4 fw-bold mb-1">🌱 성공스토리 데모 데이터 등록</h1>
+    <p class="text-muted mb-4" style="font-size:14px;">
+      Firebase Realtime Database(<code>cup-addiction</code>)에 데모 스토리 10건을 등록합니다.<br>
+      이 페이지는 최초 1회만 실행하세요.
+    </p>
+
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <button class="btn-seed" id="btnSeed" onclick="runSeed()">데모 데이터 등록하기</button>
+      <button class="btn-clear" id="btnClear" onclick="clearData()">전체 삭제</button>
+      <span class="status-badge status-idle" id="statusBadge">대기중</span>
+    </div>
+
+    <div class="log-box" id="logBox">Firebase 연결 준비 중...\n</div>
+  </div>
+
+</div>
+
+<script>
+/* ── Firebase 초기화 ── */
+const firebaseConfig = {
+  apiKey: "AIzaSyCTHYzNqsDHUSi63_gy89HHQWPXvLmtlTk",
+  authDomain: "cup-addiction.firebaseapp.com",
+  databaseURL: "https://cup-addiction-default-rtdb.firebaseio.com",
+  projectId: "cup-addiction",
+  storageBucket: "cup-addiction.firebasestorage.app",
+  messagingSenderId: "151983189527",
+  appId: "1:151983189527:web:cf6e97c5ae3a9473a0f652",
+  measurementId: "G-6FSH90LSYP"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+log('✅ Firebase 초기화 완료. "데모 데이터 등록하기" 버튼을 눌러주세요.');
+
+/* ── 로그 출력 ── */
+function log(msg) {
+  const box = document.getElementById('logBox');
+  box.textContent += msg + '\n';
+  box.scrollTop = box.scrollHeight;
+}
+
+function setStatus(type, text) {
+  const badge = document.getElementById('statusBadge');
+  badge.className = 'status-badge status-' + type;
+  badge.textContent = text;
+}
+
+/* ── 데모 데이터 정의 ── */
+const DEMO_STORIES = {
+  story_001: {
+    category: '알코올', badgeText: '알코올 회복', badgeBg: '#FFF3E0', badgeColor: '#E8A87C', topbarColor: '#E8A87C',
+    recoveryDay: 'D+730', title: '30일을 버텼어요. 가족이랑 처음으로 같이 밥을 먹었습니다',
+    preview: '하루하루가 전쟁 같았습니다. 술 생각이 날 때마다 이 커뮤니티에 와서 글을 읽었어요. 오늘 드디어 30일을 채웠고, 가족들과 외식을 했습니다.',
+    author: '익명의 나무🌱', date: '2026.02.10', dateSort: 20260210, likes: 48, comments: 12, views: 324,
+    lead: '처음 술을 끊겠다고 결심했을 때, 가족들은 아무도 믿지 않았어요. 그도 그럴 것이, 저는 이미 세 번이나 실패한 전적이 있었으니까요.',
+    body1: '매일 아침 눈을 뜨면 술 생각부터 났습니다. 점심 때도, 저녁에는 당연히 술을 마셨어요. 그게 20년 가까이 반복됐습니다. 가족들은 점점 저를 포기해 갔고, 어느 날 아내가 이혼 이야기를 꺼냈을 때 비로소 정신이 들었습니다.',
+    quote: '30일이 지났을 때, 아내가 처음으로 웃어줬어요. 그 순간이 제 인생에서 가장 소중한 기억입니다.',
+    body2: '이 커뮤니티에서 비슷한 분들의 이야기를 읽으며 하루하루를 버텼습니다. "나만 힘든 게 아니구나"라는 생각이 가장 큰 위안이 됐어요.',
+    body3: '30일을 채운 날, 가족들과 외식을 했습니다. 아직 갈 길이 멀지만, 오늘의 저는 어제보다 분명 나아졌습니다. 여러분도 할 수 있습니다. 오늘 하루만 버티세요.',
+    imgCaption: '회복 30일, 처음으로 함께한 가족 외식', createdAt: '2026-02-10T09:00:00'
+  },
+  story_002: {
+    category: '도박', badgeText: '도박 회복', badgeBg: '#F3E5F5', badgeColor: '#B39DDB', topbarColor: '#B39DDB',
+    recoveryDay: 'D+730', title: '도박 빚 3천만원을 다 갚았습니다. 2년 걸렸어요',
+    preview: '도박장에 발을 끊은 지 2년. 매달 조금씩 갚아나갔습니다. 어제 마지막 빚을 갚았어요. 통장에 처음으로 플러스가 찍혔습니다.',
+    author: '익명의 강물🌊', date: '2026.02.08', dateSort: 20260208, likes: 127, comments: 34, views: 892,
+    lead: '도박장에 처음 발을 들인 건 친구의 권유였어요. "한 번만"이라고 생각했던 그날이 제 인생을 10년이나 갉아먹었습니다.',
+    body1: '빚은 눈덩이처럼 불어났습니다. 가족에게 손을 벌리고, 친구들에게 거짓말을 했어요. 직장도 잃었습니다. 바닥을 치고 나서야 중독이음센터를 찾아왔고, 상담사 선생님의 도움으로 첫 발을 뗐습니다.',
+    quote: '통장에 처음으로 플러스가 찍힌 날, 저는 한참을 울었습니다. 그 숫자 하나가 2년의 노력이었으니까요.',
+    body2: '2년 동안 매달 조금씩 갚았습니다. 허리띠를 졸라매고, 야근도 마다하지 않았어요. 어제 마지막 빚을 갚았습니다.',
+    body3: '이제 진짜 내 인생을 시작할 수 있을 것 같아요. 도박 중독으로 힘드신 분들, 절대 혼자 버티려 하지 마세요. 도움을 받으면 반드시 길이 보입니다.',
+    imgCaption: '2년간의 회복 일지', createdAt: '2026-02-08T14:30:00'
+  },
+  story_003: {
+    category: '게임', badgeText: '게임 회복', badgeBg: '#E8F5E9', badgeColor: '#66BB6A', topbarColor: '#A5D6A7',
+    recoveryDay: 'D+180', title: '게임 없이 6개월, 새 직장을 잡았어요',
+    preview: '게임 때문에 직장을 두 번이나 잃었습니다. 하지만 이번엔 달라요. 6개월 동안 게임을 안 하고, 자격증 공부를 했어요. 어제 합격 통보를 받았습니다.',
+    author: '익명의 별빛✨', date: '2026.02.05', dateSort: 20260205, likes: 89, comments: 21, views: 567,
+    lead: '게임 때문에 직장을 두 번 잃었습니다. 면접을 앞두고도 게임을 켰고, 출근 시간에도 화면 앞을 떠나지 못했어요.',
+    body1: '처음 6개월은 정말 힘들었습니다. 손이 근질거리고, 유튜브에서 게임 영상만 보다가 잠드는 날도 많았어요. 그래도 버텼습니다. 커뮤니티에서 게임 대신 다른 취미를 찾으라는 조언을 듣고 자격증 공부를 시작했습니다.',
+    quote: '자격증 합격 통보를 받은 날, 6개월 동안 참아온 게임 생각이 싹 사라졌습니다. 이게 진짜 성취감이구나.',
+    body2: '어제 합격 통보를 받았습니다. 스펙 하나가 생겼다는 것보다, 내가 무언가를 해낼 수 있다는 걸 증명한 것 같아서 기뻤습니다.',
+    body3: '새 직장에서 잘 해낼 자신이 생겼어요. 게임 중독으로 힘드신 분, 작은 목표 하나만 세워보세요. 그 첫 걸음이 전부를 바꿉니다.',
+    imgCaption: '자격증 합격 통보 문자', createdAt: '2026-02-05T11:00:00'
+  },
+  story_004: {
+    category: '인터넷', badgeText: '인터넷 회복', badgeBg: '#E1F5FE', badgeColor: '#29B6F6', topbarColor: '#81D4FA',
+    recoveryDay: 'D+365', title: '인터넷 중독에서 벗어나 유학을 준비하고 있어요',
+    preview: '하루 16시간씩 인터넷을 했던 제가 이제는 영어 공부를 하고 있어요. 1년 동안 불필요한 인터넷 사용을 줄이고, 꿈을 찾았습니다.',
+    author: '익명의 바람🍃', date: '2026.02.03', dateSort: 20260203, likes: 156, comments: 28, views: 743,
+    lead: '하루 16시간씩 인터넷을 하며 5년을 보냈습니다. 친구도 잃고, 꿈도 잃고, 방 안에서 세상과 단절되어 살았어요.',
+    body1: '회복의 첫 단계는 스마트폰을 서랍 안에 넣어두는 것이었습니다. 처음엔 불안해서 잠을 못 잤어요. 하지만 빈 시간에 영어 단어장을 펼치면서 조금씩 달라지기 시작했습니다.',
+    quote: '인터넷을 끊고 나서야 세상이 이렇게 넓다는 걸 알았어요. 1년 만에 토익 800점을 넘겼습니다.',
+    body2: '1년이 지난 지금, 저는 캐나다 어학연수를 준비하고 있습니다. 5년간 방 안에서 낭비한 시간이 아깝지만, 지금부터 시작해도 늦지 않다고 믿습니다.',
+    body3: '인터넷이 세상의 전부처럼 느껴질 때, 잠깐 화면을 끄고 창문을 열어보세요. 거기서부터 회복이 시작됩니다.',
+    imgCaption: '토익 성적표와 어학연수 준비물', createdAt: '2026-02-03T16:00:00'
+  },
+  story_005: {
+    category: '알코올', badgeText: '알코올 회복', badgeBg: '#FFF3E0', badgeColor: '#E8A87C', topbarColor: '#E8A87C',
+    recoveryDay: 'D+450', title: '알코올과 작별하고 아이 학교 운동회에 참가했어요',
+    preview: '매번 술 때문에 아이 학교 행사를 놓쳤습니다. 이번엔 맨 정신으로 운동회에 갔어요. 아이가 달려와서 안기던 순간, 정말 행복했습니다.',
+    author: '익명의 햇살🌞', date: '2026.02.01', dateSort: 20260201, likes: 203, comments: 47, views: 1234,
+    lead: '아이가 학교 운동회에 나온다고 했을 때, 저는 또 술 때문에 못 가겠다고 했습니다. 그 순간 아이의 눈빛을 잊을 수가 없어요.',
+    body1: '알코올 중독 판정을 받고 나서도 1년은 더 술을 마셨습니다. 가족을 잃을 것 같다는 두려움이 저를 회복으로 이끌었어요. 중독이음센터에서 그룹 상담을 받으며 비슷한 처지의 분들과 이야기 나누는 것이 큰 힘이 됐습니다.',
+    quote: '아이가 달려와 안겼을 때, 눈물이 났습니다. 이 순간을 위해 450일을 버텼구나 싶었어요.',
+    body2: '450일이 지난 지금, 저는 매주 아이 축구 경기를 응원하러 갑니다. 작은 것들이 달라졌어요. 아침에 일어나는 게 싫지 않고, 가족과의 밥상이 행복합니다.',
+    body3: '회복은 가능합니다. 아직 늦지 않았어요. 오늘이 바로 시작할 수 있는 날입니다.',
+    imgCaption: '운동회 날 아이와 함께', createdAt: '2026-02-01T08:00:00'
+  },
+  story_006: {
+    category: '복합중독', badgeText: '복합중독 회복', badgeBg: '#FCE4EC', badgeColor: '#F48FB1', topbarColor: '#F48FB1',
+    recoveryDay: 'D+1095', title: '복합 중독이었던 제가 지금은 상담 봉사를 해요',
+    preview: '술, 도박, 게임... 다 했었어요. 3년이 걸렸지만 이제는 회복했습니다. 요즘은 주말마다 중독 회복 센터에서 봉사를 하고 있어요.',
+    author: '익명의 씨앗🌰', date: '2026.01.28', dateSort: 20260128, likes: 312, comments: 68, views: 2103,
+    lead: '술, 도박, 게임. 세 가지를 동시에 했습니다. 30대를 통째로 잃었다는 생각에 한동안 아무것도 할 수 없었어요.',
+    body1: '세 가지 중독이 복잡하게 얽혀 있어서 회복이 더뎠습니다. 한 가지를 끊으면 다른 것에 더 빠지는 악순환이 반복됐어요. 전문 상담사의 도움을 받아 하나씩 끊어내는 데만 2년이 걸렸습니다.',
+    quote: '회복 센터에서 봉사를 하다 보면, 3년 전의 내가 보입니다. 그리고 그분들께 말해줄 수 있어요. 괜찮아진다고.',
+    body2: '이제는 주말마다 중독 회복 센터에서 봉사를 합니다. 처음 온 분들의 눈빛이 3년 전 저와 똑같아요.',
+    body3: '그분들께 "저도 그랬어요. 괜찮아집니다"라고 말해줄 수 있다는 게 지금 제 삶의 가장 큰 보람입니다. 복합 중독이라도 포기하지 마세요.',
+    imgCaption: '봉사 활동 모습', createdAt: '2026-01-28T20:00:00'
+  },
+  story_007: {
+    category: '알코올', badgeText: '알코올 회복', badgeBg: '#FFF3E0', badgeColor: '#E8A87C', topbarColor: '#E8A87C',
+    recoveryDay: 'D+180', title: '술을 끊고 6개월, 처음으로 저를 위한 여행을 다녀왔어요',
+    preview: '20년 동안 술과 함께했던 저에게 여행은 사치였습니다. 회복 6개월 만에 제주도를 다녀왔어요. 맑은 정신으로 바라본 바다가 이렇게 아름다울 줄은 몰랐어요.',
+    author: '익명의 구름☁️', date: '2026.01.20', dateSort: 20260120, likes: 74, comments: 19, views: 412,
+    lead: '20년 동안 술과 함께한 저에게 여행은 사치였습니다. 술 없이 하루를 버티는 것만도 전쟁이었으니까요.',
+    body1: '회복 6개월 차에 처음으로 혼자 여행을 계획했습니다. 친구들은 말렸어요. 술 없이 여행을 즐길 수 있겠냐고요. 하지만 저는 도전하고 싶었습니다.',
+    quote: '제주도 바다를 맑은 정신으로 바라봤습니다. 이렇게 아름다운 세상을 술에 취해서 흘려보냈다는 게 너무 아까웠어요.',
+    body2: '3박 4일 제주도 여행에서 한 잔도 마시지 않았습니다. 한라산을 걷고, 성산일출봉에서 일출을 봤어요.',
+    body3: '집에 돌아오는 비행기 안에서, 처음으로 진짜 쉬었다는 기분이 들었습니다. 회복의 선물은 생각보다 훨씬 크고 아름다웠어요.',
+    imgCaption: '성산일출봉에서', createdAt: '2026-01-20T10:00:00'
+  },
+  story_008: {
+    category: '도박', badgeText: '도박 회복', badgeBg: '#F3E5F5', badgeColor: '#B39DDB', topbarColor: '#B39DDB',
+    recoveryDay: 'D+270', title: '아내가 다시 웃어줬습니다. 9개월만의 일이에요',
+    preview: '도박으로 가정이 무너졌어요. 아내는 이혼 서류를 준비했고, 저는 모든 걸 잃기 직전이었습니다. 9개월 회복 후 아내가 처음으로 밥을 같이 먹자고 했어요.',
+    author: '익명의 새벽🌄', date: '2026.01.15', dateSort: 20260115, likes: 198, comments: 52, views: 1087,
+    lead: '도박으로 가정이 무너졌습니다. 아내는 이혼 서류를 준비했고, 저는 모든 걸 잃기 직전이었어요.',
+    body1: '도박을 끊겠다고 선언만 수십 번 했습니다. 그때마다 며칠을 못 버텼어요. 아내가 정말로 짐을 쌌을 때, 처음으로 전문 도움을 받겠다고 마음먹었습니다. 상담을 받으며 도박 뒤에 숨어 있던 불안감을 마주했어요.',
+    quote: '9개월 만에 아내가 "밥 같이 먹자"고 했을 때, 세상을 다 얻은 것 같았습니다.',
+    body2: '9개월이 지났습니다. 아내는 아직 완전히 마음을 열지 않았지만, 지난 주말에 처음으로 밥을 같이 먹었어요.',
+    body3: '작은 한 걸음이지만, 저에겐 마라톤을 완주한 것보다 의미 있습니다. 가정을 지키고 싶으신 분, 지금 바로 도움을 요청하세요.',
+    imgCaption: '9개월 회복의 기록', createdAt: '2026-01-15T07:30:00'
+  },
+  story_009: {
+    category: '게임', badgeText: '게임 회복', badgeBg: '#E8F5E9', badgeColor: '#66BB6A', topbarColor: '#A5D6A7',
+    recoveryDay: 'D+90', title: '100일도 안 됐는데 체중 10kg을 감량했어요',
+    preview: '하루 18시간 게임. 라면이 주식이었어요. 회복을 시작하고 산책을 시작했는데, 어느새 90일이 됐습니다. 몸무게가 10kg 줄었고 근육도 생겼어요.',
+    author: '익명의 봄비🌧️', date: '2026.01.10', dateSort: 20260110, likes: 93, comments: 26, views: 631,
+    lead: '하루 18시간 게임, 라면이 주식, 화장실 외에는 방을 나오지 않은 날이 수백 일이었습니다.',
+    body1: '회복을 시작하고 가장 먼저 한 것은 산책이었습니다. 처음엔 편의점까지 10분이 전부였어요. 하지만 매일 조금씩 늘렸습니다. 신선한 공기를 마시면서 게임 생각이 점점 줄어드는 걸 느꼈어요.',
+    quote: '90일 만에 10kg이 빠졌습니다. 게임보다 더 재미있는 게 있다는 걸 그제야 알았어요.',
+    body2: '3개월이 지나자 체중이 10kg 줄었고, 근육도 생겼습니다. 외모가 바뀌니 자신감도 생겼어요. 취업 준비를 시작했고, 요즘은 헬스장을 다니고 있습니다.',
+    body3: '게임 대신 운동이 새로운 루틴이 됐어요. 몸이 바뀌면 삶도 바뀝니다. 지금 당장 운동화 끈을 묶어보세요.',
+    imgCaption: '3개월 전후 변화', createdAt: '2026-01-10T13:00:00'
+  },
+  story_010: {
+    category: '인터넷', badgeText: '인터넷 회복', badgeBg: '#E1F5FE', badgeColor: '#29B6F6', topbarColor: '#81D4FA',
+    recoveryDay: 'D+540', title: '디지털 디톡스 후 작가가 되었습니다',
+    preview: '15개월 동안 SNS와 유튜브에 중독됐었어요. 회복 후 생긴 여유 시간에 글쓰기를 시작했습니다. 지난달 첫 에세이집 출간 계약을 했어요.',
+    author: '익명의 달빛🌙', date: '2026.01.05', dateSort: 20260105, likes: 241, comments: 61, views: 1876,
+    lead: 'SNS 알림 소리 하나에도 가슴이 두근거렸습니다. 팔로워 숫자, 좋아요 개수가 제 하루의 기준이었어요.',
+    body1: '인터넷 중독은 티가 나지 않아서 더 무서웠습니다. 겉으로는 평범해 보였지만 하루 15시간을 화면 앞에서 보냈어요. 상담을 받으면서 비교와 인정 욕구가 중독의 뿌리였다는 것을 알게 됐습니다.',
+    quote: 'SNS를 끊고 나서야 내 목소리를 찾았습니다. 그 목소리로 책을 썼어요.',
+    body2: 'SNS를 끊고 생긴 시간에 일기를 쓰기 시작했어요. 6개월 후 지인의 권유로 블로그에 올렸고, 예상치 못한 반응이 왔습니다.',
+    body3: '출판사에서 연락이 왔고, 지난달 에세이집 출간 계약을 했습니다. 가장 솔직한 이야기가 가장 많은 분들에게 닿았어요. 당신의 이야기도 누군가에겐 큰 위로가 됩니다.',
+    imgCaption: '첫 에세이집 출간 계약서', createdAt: '2026-01-05T22:00:00'
+  }
+};
+
+/* ── 데이터 등록 실행 ── */
+async function runSeed() {
+  document.getElementById('btnSeed').disabled = true;
+  setStatus('running', '등록 중...');
+  log('\n▶ 데모 데이터 등록 시작...');
+
+  try {
+    // 현재 데이터 확인
+    const snapshot = await db.ref('stories').once('value');
+    if (snapshot.val()) {
+      log('⚠️  기존 데이터가 있습니다. 덮어씁니다...');
+    }
+
+    // 스토리 개별 등록
+    const keys = Object.keys(DEMO_STORIES);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      await db.ref('stories/' + key).set(DEMO_STORIES[key]);
+      log(`  ✅ [${i+1}/${keys.length}] ${DEMO_STORIES[key].title.substring(0, 20)}...`);
+    }
+
+    log('\n🎉 총 ' + keys.length + '건 등록 완료!');
+    log('👉 success-stories.html 을 열어서 확인해보세요.');
+    setStatus('done', '등록 완료 (' + keys.length + '건)');
+  } catch (err) {
+    log('\n❌ 오류 발생: ' + err.message);
+    log('→ Firebase 보안 규칙에서 write 권한을 확인하세요.');
+    setStatus('error', '오류 발생');
+    document.getElementById('btnSeed').disabled = false;
+  }
+}
+
+/* ── 전체 삭제 ── */
+async function clearData() {
+  if (!confirm('Firebase의 stories 데이터를 모두 삭제하시겠습니까?')) return;
+  document.getElementById('btnClear').disabled = true;
+  setStatus('running', '삭제 중...');
+  log('\n▶ 데이터 삭제 시작...');
+
+  try {
+    await db.ref('stories').remove();
+    log('✅ stories 데이터가 모두 삭제되었습니다.');
+    setStatus('idle', '삭제 완료');
+  } catch (err) {
+    log('\n❌ 삭제 오류: ' + err.message);
+    setStatus('error', '삭제 오류');
+  }
+  document.getElementById('btnClear').disabled = false;
+}
+</script>
+</body>
+</html>

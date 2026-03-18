@@ -13,49 +13,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/subpage.css" />
+
+  <!-- Firebase SDK (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 </head>
 <body>
 
-<!-- ════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════ -->
-<nav id="mainNav" class="navbar navbar-expand-md fixed-top py-0">
-  <div class="container-xl px-4">
-    <a class="navbar-brand d-flex align-items-center gap-2 py-3" href="index.html">
-      <div class="brand-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-             stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 20h10"/>
-          <path d="M10 20c5.5-2.5.8-6.4 3-9"/>
-          <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-2-3.7.7-.1 3.3-.2 4.5.3z"/>
-          <path d="M14.1 6a7 7 0 0 1 1.7 4.8c-1.6.5-4 .6-5.4-.6-.3-2 1.5-3.5 3.7-4.2z"/>
-        </svg>
-      </div>
-      <span class="brand-name">중독이음센터</span>
-    </a>
-    <button class="navbar-toggler border-0 p-2" type="button"
-            data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-            aria-controls="navbarMenu" aria-expanded="false" aria-label="메뉴 열기">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-           fill="none" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="navbar-nav ms-auto align-items-md-center mb-3 mb-md-0">
-        <li class="nav-item"><a class="nav-link" href="recovery-info.html">회복정보</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#community">커뮤니티</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#resources">전문가상담</a></li>
-        <li class="nav-item"><a class="nav-link active" href="success-stories.html">성공스토리</a></li>
-      </ul>
-      <a href="index.html#resources" class="btn btn-primary-custom ms-md-3 px-4 py-2 rounded-pill">
-        무료 시작하기
-      </a>
-    </div>
-  </div>
-</nav>
+<!-- 공통 헤더 플레이스홀더 -->
+<div id="site-header"></div>
 
 <!-- ════════════════════════════════════
      PAGE HERO
@@ -92,35 +58,24 @@
       <!-- Right: SVG Illustration -->
       <div class="col-lg-5 text-center fade-up fade-up-delay-2">
         <svg viewBox="0 0 380 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-100" style="max-width:380px;">
-          <!-- Bottom book -->
           <rect x="60" y="200" width="260" height="80" rx="8" fill="#E8A87C" opacity="0.3"/>
           <rect x="60" y="200" width="260" height="80" rx="8" fill="none" stroke="#E8A87C" stroke-width="2"/>
           <line x1="70" y1="220" x2="110" y2="220" stroke="#E8A87C" stroke-width="1.5" opacity="0.5"/>
           <line x1="70" y1="235" x2="130" y2="235" stroke="#E8A87C" stroke-width="1.5" opacity="0.5"/>
           <line x1="70" y1="250" x2="100" y2="250" stroke="#E8A87C" stroke-width="1.5" opacity="0.5"/>
-          <!-- Middle book -->
           <rect x="80" y="140" width="240" height="70" rx="8" fill="#6B9E7A" opacity="0.2"/>
           <rect x="80" y="140" width="240" height="70" rx="8" fill="none" stroke="#6B9E7A" stroke-width="2"/>
           <line x1="90" y1="160" x2="130" y2="160" stroke="#6B9E7A" stroke-width="1.5" opacity="0.5"/>
           <line x1="90" y1="175" x2="150" y2="175" stroke="#6B9E7A" stroke-width="1.5" opacity="0.5"/>
           <line x1="90" y1="190" x2="120" y2="190" stroke="#6B9E7A" stroke-width="1.5" opacity="0.5"/>
-          <!-- Top open book -->
           <path d="M100 90 L190 80 L190 150 L100 160 Z" fill="#FFF3E0" stroke="#E8A87C" stroke-width="2"/>
           <path d="M190 80 L280 90 L280 160 L190 150 Z" fill="#FFFBF5" stroke="#E8A87C" stroke-width="2"/>
           <line x1="190" y1="80" x2="190" y2="150" stroke="#E8A87C" stroke-width="3"/>
-          <line x1="110" y1="100" x2="170" y2="95" stroke="#E8A87C" stroke-width="1" opacity="0.4"/>
-          <line x1="110" y1="115" x2="170" y2="110" stroke="#E8A87C" stroke-width="1" opacity="0.4"/>
-          <line x1="110" y1="130" x2="160" y2="125" stroke="#E8A87C" stroke-width="1" opacity="0.4"/>
-          <line x1="200" y1="95" x2="260" y2="100" stroke="#E8A87C" stroke-width="1" opacity="0.4"/>
-          <line x1="200" y1="110" x2="260" y2="115" stroke="#E8A87C" stroke-width="1" opacity="0.4"/>
-          <line x1="200" y1="125" x2="250" y2="130" stroke="#E8A87C" stroke-width="1" opacity="0.4"/>
-          <!-- Sprout -->
           <path d="M190 110 Q195 70 200 40" stroke="#6B9E7A" stroke-width="3" fill="none" stroke-linecap="round"/>
           <ellipse cx="185" cy="55" rx="18" ry="25" fill="#6B9E7A" opacity="0.7" transform="rotate(-25 185 55)"/>
           <ellipse cx="210" cy="50" rx="18" ry="25" fill="#6B9E7A" opacity="0.7" transform="rotate(25 210 50)"/>
           <ellipse cx="195" cy="32" rx="15" ry="22" fill="#6B9E7A" transform="rotate(-10 195 32)"/>
           <ellipse cx="205" cy="30" rx="15" ry="22" fill="#6B9E7A" transform="rotate(10 205 30)"/>
-          <!-- Sparkles -->
           <circle cx="240" cy="60" r="3" fill="#E8A87C" opacity="0.6"/>
           <circle cx="260" cy="80" r="2" fill="#E8A87C" opacity="0.6"/>
           <circle cx="150" cy="50" r="2.5" fill="#6B9E7A" opacity="0.6"/>
@@ -163,9 +118,9 @@
             최신순
           </button>
           <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3">
-            <li><button class="dropdown-item sort-option active" data-sort="최신순">최신순</button></li>
-            <li><button class="dropdown-item sort-option" data-sort="공감순">공감순</button></li>
-            <li><button class="dropdown-item sort-option" data-sort="조회순">조회순</button></li>
+            <li><button class="dropdown-item sort-option active" data-sort="latest">최신순</button></li>
+            <li><button class="dropdown-item sort-option" data-sort="likes">공감순</button></li>
+            <li><button class="dropdown-item sort-option" data-sort="views">조회순</button></li>
           </ul>
         </div>
       </div>
@@ -183,201 +138,17 @@
 
       <!-- ── 스토리 그리드 (70%) ── -->
       <div class="col-lg-8">
-        <div class="row g-4 pt-3" id="storyGrid">
 
-          <!-- Story 1 -->
-          <div class="col-md-6 col-xl-4 story-card-wrap" data-cat="알코올" data-likes="48" data-views="324" data-date="20260210">
-            <a href="story-detail.html" class="story-card-link">
-              <article class="story-card fade-up">
-                <div class="story-card-topbar" style="background:#E8A87C;"></div>
-                <div class="story-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="story-type-badge" style="background:#FFF3E0; color:#E8A87C;">알코올 회복</span>
-                    <span class="story-recovery-badge">D+730</span>
-                  </div>
-                  <h3 class="story-card-title">30일을 버텼어요. 가족이랑 처음으로 같이 밥을 먹었습니다</h3>
-                  <p class="story-card-preview">하루하루가 전쟁 같았습니다. 술 생각이 날 때마다 이 커뮤니티에 와서 글을 읽었어요. 오늘 드디어 30일을 채웠고, 가족들과 외식을 했습니다.</p>
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="story-avatar" style="background: linear-gradient(135deg, #E8A87C, #E8A87C);">익</div>
-                      <span class="story-author">익명의 나무🌱</span>
-                    </div>
-                    <span class="story-date">2026.02.10</span>
-                  </div>
-                  <div class="story-stats">
-                    <span>💚 공감 48</span>
-                    <span class="text-muted">·</span>
-                    <span>💬 댓글 12</span>
-                    <span class="text-muted">·</span>
-                    <span>👁 조회 324</span>
-                  </div>
-                </div>
-                <div class="story-card-footer">스토리 읽기 →</div>
-              </article>
-            </a>
+        <!-- 로딩 상태 -->
+        <div id="storyLoading" class="text-center py-5">
+          <div class="spinner-border" style="color: var(--color-primary); width:2.5rem; height:2.5rem;" role="status">
+            <span class="visually-hidden">로딩 중...</span>
           </div>
+          <p class="mt-3 text-muted" style="font-size:14px;">스토리를 불러오는 중입니다...</p>
+        </div>
 
-          <!-- Story 2 -->
-          <div class="col-md-6 col-xl-4 story-card-wrap" data-cat="도박" data-likes="127" data-views="892" data-date="20260208">
-            <a href="story-detail.html" class="story-card-link">
-              <article class="story-card fade-up fade-up-delay-1">
-                <div class="story-card-topbar" style="background:#B39DDB;"></div>
-                <div class="story-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="story-type-badge" style="background:#F3E5F5; color:#B39DDB;">도박 회복</span>
-                    <span class="story-recovery-badge">D+730</span>
-                  </div>
-                  <h3 class="story-card-title">도박 빚 3천만원을 다 갚았습니다. 2년 걸렸어요</h3>
-                  <p class="story-card-preview">도박장에 발을 끊은 지 2년. 매달 조금씩 갚아나갔습니다. 어제 마지막 빚을 갚았어요. 통장에 처음으로 플러스가 찍혔습니다.</p>
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="story-avatar" style="background: linear-gradient(135deg, #B39DDB, #B39DDB);">익</div>
-                      <span class="story-author">익명의 나무🌱</span>
-                    </div>
-                    <span class="story-date">2026.02.08</span>
-                  </div>
-                  <div class="story-stats">
-                    <span>💚 공감 127</span>
-                    <span class="text-muted">·</span>
-                    <span>💬 댓글 34</span>
-                    <span class="text-muted">·</span>
-                    <span>👁 조회 892</span>
-                  </div>
-                </div>
-                <div class="story-card-footer">스토리 읽기 →</div>
-              </article>
-            </a>
-          </div>
-
-          <!-- Story 3 -->
-          <div class="col-md-6 col-xl-4 story-card-wrap" data-cat="게임" data-likes="89" data-views="567" data-date="20260205">
-            <a href="story-detail.html" class="story-card-link">
-              <article class="story-card fade-up fade-up-delay-2">
-                <div class="story-card-topbar" style="background:#A5D6A7;"></div>
-                <div class="story-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="story-type-badge" style="background:#E8F5E9; color:#66BB6A;">게임 회복</span>
-                    <span class="story-recovery-badge">D+180</span>
-                  </div>
-                  <h3 class="story-card-title">게임 없이 6개월, 새 직장을 잡았어요</h3>
-                  <p class="story-card-preview">게임 때문에 직장을 두 번이나 잃었습니다. 하지만 이번엔 달라요. 6개월 동안 게임을 안 하고, 자격증 공부를 했어요. 어제 합격 통보를 받았습니다.</p>
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="story-avatar" style="background: linear-gradient(135deg, #A5D6A7, #A5D6A7);">익</div>
-                      <span class="story-author">익명의 나무🌱</span>
-                    </div>
-                    <span class="story-date">2026.02.05</span>
-                  </div>
-                  <div class="story-stats">
-                    <span>💚 공감 89</span>
-                    <span class="text-muted">·</span>
-                    <span>💬 댓글 21</span>
-                    <span class="text-muted">·</span>
-                    <span>👁 조회 567</span>
-                  </div>
-                </div>
-                <div class="story-card-footer">스토리 읽기 →</div>
-              </article>
-            </a>
-          </div>
-
-          <!-- Story 4 -->
-          <div class="col-md-6 col-xl-4 story-card-wrap" data-cat="인터넷" data-likes="156" data-views="743" data-date="20260203">
-            <a href="story-detail.html" class="story-card-link">
-              <article class="story-card fade-up">
-                <div class="story-card-topbar" style="background:#81D4FA;"></div>
-                <div class="story-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="story-type-badge" style="background:#E1F5FE; color:#29B6F6;">인터넷 회복</span>
-                    <span class="story-recovery-badge">D+365</span>
-                  </div>
-                  <h3 class="story-card-title">인터넷 중독에서 벗어나 유학을 준비하고 있어요</h3>
-                  <p class="story-card-preview">하루 16시간씩 인터넷을 했던 제가 이제는 영어 공부를 하고 있어요. 1년 동안 불필요한 인터넷 사용을 줄이고, 꿈을 찾았습니다.</p>
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="story-avatar" style="background: linear-gradient(135deg, #81D4FA, #81D4FA);">익</div>
-                      <span class="story-author">익명의 나무🌱</span>
-                    </div>
-                    <span class="story-date">2026.02.03</span>
-                  </div>
-                  <div class="story-stats">
-                    <span>💚 공감 156</span>
-                    <span class="text-muted">·</span>
-                    <span>💬 댓글 28</span>
-                    <span class="text-muted">·</span>
-                    <span>👁 조회 743</span>
-                  </div>
-                </div>
-                <div class="story-card-footer">스토리 읽기 →</div>
-              </article>
-            </a>
-          </div>
-
-          <!-- Story 5 -->
-          <div class="col-md-6 col-xl-4 story-card-wrap" data-cat="알코올" data-likes="203" data-views="1234" data-date="20260201">
-            <a href="story-detail.html" class="story-card-link">
-              <article class="story-card fade-up fade-up-delay-1">
-                <div class="story-card-topbar" style="background:#E8A87C;"></div>
-                <div class="story-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="story-type-badge" style="background:#FFF3E0; color:#E8A87C;">알코올 회복</span>
-                    <span class="story-recovery-badge">D+450</span>
-                  </div>
-                  <h3 class="story-card-title">알코올과 작별하고 아이 학교 운동회에 참가했어요</h3>
-                  <p class="story-card-preview">매번 술 때문에 아이 학교 행사를 놓쳤습니다. 이번엔 맨 정신으로 운동회에 갔어요. 아이가 달려와서 안기던 순간, 정말 행복했습니다.</p>
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="story-avatar" style="background: linear-gradient(135deg, #E8A87C, #E8A87C);">익</div>
-                      <span class="story-author">익명의 나무🌱</span>
-                    </div>
-                    <span class="story-date">2026.02.01</span>
-                  </div>
-                  <div class="story-stats">
-                    <span>💚 공감 203</span>
-                    <span class="text-muted">·</span>
-                    <span>💬 댓글 47</span>
-                    <span class="text-muted">·</span>
-                    <span>👁 조회 1,234</span>
-                  </div>
-                </div>
-                <div class="story-card-footer">스토리 읽기 →</div>
-              </article>
-            </a>
-          </div>
-
-          <!-- Story 6 -->
-          <div class="col-md-6 col-xl-4 story-card-wrap" data-cat="복합중독" data-likes="312" data-views="2103" data-date="20260128">
-            <a href="story-detail.html" class="story-card-link">
-              <article class="story-card fade-up fade-up-delay-2">
-                <div class="story-card-topbar" style="background:#F48FB1;"></div>
-                <div class="story-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="story-type-badge" style="background:#FCE4EC; color:#F48FB1;">복합중독 회복</span>
-                    <span class="story-recovery-badge">D+1095</span>
-                  </div>
-                  <h3 class="story-card-title">복합 중독이었던 제가 지금은 상담 봉사를 해요</h3>
-                  <p class="story-card-preview">술, 도박, 게임... 다 했었어요. 3년이 걸렸지만 이제는 회복했습니다. 요즘은 주말마다 중독 회복 센터에서 봉사를 하고 있어요.</p>
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="story-avatar" style="background: linear-gradient(135deg, #F48FB1, #F48FB1);">익</div>
-                      <span class="story-author">익명의 나무🌱</span>
-                    </div>
-                    <span class="story-date">2026.01.28</span>
-                  </div>
-                  <div class="story-stats">
-                    <span>💚 공감 312</span>
-                    <span class="text-muted">·</span>
-                    <span>💬 댓글 68</span>
-                    <span class="text-muted">·</span>
-                    <span>👁 조회 2,103</span>
-                  </div>
-                </div>
-                <div class="story-card-footer">스토리 읽기 →</div>
-              </article>
-            </a>
-          </div>
-
-        </div><!-- /row storyGrid -->
+        <!-- 스토리 카드 그리드 -->
+        <div class="row g-4 pt-3" id="storyGrid" style="display:none;"></div>
 
         <!-- 빈 결과 -->
         <div id="storyNoResult" class="text-center py-5 d-none">
@@ -385,7 +156,7 @@
         </div>
 
         <!-- Pagination -->
-        <nav class="d-flex justify-content-center align-items-center gap-2 mt-5" aria-label="페이지 네비게이션">
+        <nav class="d-flex justify-content-center align-items-center gap-2 mt-5" aria-label="페이지 네비게이션" id="paginationWrap" style="display:none !important;">
           <button class="page-btn" id="prevPage" disabled>←</button>
           <div class="d-none d-md-flex gap-2" id="pageNums">
             <button class="page-btn active" data-page="1">1</button>
@@ -450,147 +221,224 @@
   </div><!-- /container -->
 </section>
 
-<!-- ════════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
-<footer id="footer">
-  <div class="container-xl px-4">
-    <div class="row g-4 g-lg-5 pb-5 border-bottom border-secondary border-opacity-25">
-      <div class="col-lg-4">
-        <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none mb-3">
-          <div class="brand-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                 stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-9"/>
-              <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-2-3.7.7-.1 3.3-.2 4.5.3z"/>
-              <path d="M14.1 6a7 7 0 0 1 1.7 4.8c-1.6.5-4 .6-5.4-.6-.3-2 1.5-3.5 3.7-4.2z"/>
-            </svg>
-          </div>
-          <span class="brand-name text-white">중독이음센터</span>
-        </a>
-        <p class="footer-desc">중독으로 어려움을 겪는 모든 분들의 회복을 함께합니다. 혼자가 아닙니다.</p>
-        <div class="d-flex gap-3 mt-4">
-          <a href="#" class="footer-social" aria-label="인스타그램">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-          </a>
-          <a href="#" class="footer-social" aria-label="유튜브">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
-          </a>
-          <a href="#" class="footer-social" aria-label="카카오톡">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.671 1.884 4.987 4.667 6.268L5.5 20.5l4-2.5c.808.166 1.643.25 2.5.25 5.523 0 10-3.477 10-7.75S17.523 3 12 3z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-2 offset-lg-1">
-        <h6 class="footer-heading">서비스</h6>
-        <ul class="footer-links">
-          <li><a href="recovery-info.html">회복정보</a></li>
-          <li><a href="index.html#community">커뮤니티</a></li>
-          <li><a href="success-stories.html">성공스토리</a></li>
-          <li><a href="index.html#resources">전문가상담</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="footer-heading">도움말</h6>
-        <ul class="footer-links">
-          <li><a href="#">이용방법</a></li>
-          <li><a href="#">개인정보처리방침</a></li>
-          <li><a href="#">이용약관</a></li>
-          <li><a href="#">문의하기</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-3">
-        <h6 class="footer-heading">위기상담</h6>
-        <div class="crisis-box">
-          <div class="crisis-label">24시간 위기상담전화</div>
-          <div class="crisis-number">1577-0199</div>
-          <div class="crisis-sub">정신건강 위기상담전화 (무료)</div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="mb-1">© 2026 중독이음센터. All rights reserved.</p>
-      <p class="footer-disclaimer">본 서비스는 의료 서비스를 대체하지 않습니다. 전문적인 치료가 필요한 경우 의료기관을 방문하세요.</p>
-    </div>
-  </div>
-</footer>
+<!-- 공통 푸터 플레이스홀더 -->
+<div id="site-footer"></div>
 
-<button id="backTop" aria-label="맨 위로">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-       fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"/>
-  </svg>
-</button>
-
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- 공통 컴포넌트 (nav · footer · backTop 주입) -->
+<script src="js/components.js"></script>
+<!-- 공통 인터랙션 -->
 <script src="js/main.js"></script>
+
 <script>
-// ── 카테고리 필터 ──
-const catBtns = document.querySelectorAll('#storyCategoryTabs .filter-btn');
-const storyWraps = document.querySelectorAll('.story-card-wrap');
-const storyNoResult = document.getElementById('storyNoResult');
+/* ============================================================
+   Firebase 초기화
+============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyCTHYzNqsDHUSi63_gy89HHQWPXvLmtlTk",
+  authDomain: "cup-addiction.firebaseapp.com",
+  databaseURL: "https://cup-addiction-default-rtdb.firebaseio.com",
+  projectId: "cup-addiction",
+  storageBucket: "cup-addiction.firebasestorage.app",
+  messagingSenderId: "151983189527",
+  appId: "1:151983189527:web:cf6e97c5ae3a9473a0f652",
+  measurementId: "G-6FSH90LSYP"
+};
 
-function applyFilter() {
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+/* ============================================================
+   상태 변수
+============================================================ */
+let allStories = [];       // Firebase에서 불러온 전체 데이터
+let filteredStories = [];  // 현재 필터/검색/정렬 적용 후 목록
+let currentSort = 'latest';
+
+/* ============================================================
+   스토리 카드 HTML 생성
+============================================================ */
+function buildStoryCardHTML(story, idx) {
+  const delayClass = idx % 3 === 1 ? ' fade-up-delay-1' : idx % 3 === 2 ? ' fade-up-delay-2' : '';
+  return `
+    <div class="col-md-6 col-xl-4 story-card-wrap" data-cat="${story.category}">
+      <a href="story-detail.html?id=${story.id}" class="story-card-link">
+        <article class="story-card fade-up${delayClass}">
+          <div class="story-card-topbar" style="background:${story.topbarColor};"></div>
+          <div class="story-card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="story-type-badge" style="background:${story.badgeBg}; color:${story.badgeColor};">
+                ${story.badgeText}
+              </span>
+              <span class="story-recovery-badge">${story.recoveryDay}</span>
+            </div>
+            <h3 class="story-card-title">${story.title}</h3>
+            <p class="story-card-preview">${story.preview}</p>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="story-avatar" style="background: linear-gradient(135deg,${story.topbarColor},${story.topbarColor});">익</div>
+                <span class="story-author">${story.author}</span>
+              </div>
+              <span class="story-date">${story.date}</span>
+            </div>
+            <div class="story-stats">
+              <span>💚 공감 ${story.likes}</span>
+              <span class="text-muted">·</span>
+              <span>💬 댓글 ${story.comments}</span>
+              <span class="text-muted">·</span>
+              <span>👁 조회 ${story.views.toLocaleString()}</span>
+            </div>
+          </div>
+          <div class="story-card-footer">스토리 읽기 →</div>
+        </article>
+      </a>
+    </div>
+  `;
+}
+
+/* ============================================================
+   스토리 렌더링
+============================================================ */
+function renderStories(stories) {
+  const grid = document.getElementById('storyGrid');
+  const noResult = document.getElementById('storyNoResult');
+  const loading = document.getElementById('storyLoading');
+  const paginationWrap = document.getElementById('paginationWrap');
+
+  loading.style.display = 'none';
+
+  if (!stories || stories.length === 0) {
+    grid.style.display = 'none';
+    noResult.classList.remove('d-none');
+    return;
+  }
+
+  noResult.classList.add('d-none');
+  grid.style.display = '';
+  paginationWrap.style.display = '';
+
+  grid.innerHTML = stories.map((story, idx) => buildStoryCardHTML(story, idx)).join('');
+
+  // IntersectionObserver 재적용 (동적 삽입된 .fade-up 요소)
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    grid.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  } else {
+    grid.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+  }
+}
+
+/* ============================================================
+   필터 · 검색 · 정렬 적용
+============================================================ */
+function applyFilterAndSort() {
   const activeCat = document.querySelector('#storyCategoryTabs .filter-btn.active').dataset.cat;
-  const searchVal = document.getElementById('storySearch').value.toLowerCase();
-  let visible = 0;
-  storyWraps.forEach(wrap => {
-    const catMatch = activeCat === '전체' || wrap.dataset.cat === activeCat;
-    const title = wrap.querySelector('.story-card-title').textContent.toLowerCase();
-    const preview = wrap.querySelector('.story-card-preview').textContent.toLowerCase();
-    const textMatch = !searchVal || title.includes(searchVal) || preview.includes(searchVal);
-    const show = catMatch && textMatch;
-    wrap.style.display = show ? '' : 'none';
-    if (show) visible++;
+  const searchVal = document.getElementById('storySearch').value.toLowerCase().trim();
+
+  let result = allStories.filter(story => {
+    const catMatch = activeCat === '전체' || story.category === activeCat;
+    const textMatch = !searchVal ||
+      story.title.toLowerCase().includes(searchVal) ||
+      story.preview.toLowerCase().includes(searchVal);
+    return catMatch && textMatch;
   });
-  storyNoResult.classList.toggle('d-none', visible > 0);
+
+  // 정렬
+  if (currentSort === 'likes') {
+    result.sort((a, b) => b.likes - a.likes);
+  } else if (currentSort === 'views') {
+    result.sort((a, b) => b.views - a.views);
+  } else {
+    result.sort((a, b) => b.dateSort - a.dateSort);
+  }
+
+  filteredStories = result;
+  renderStories(filteredStories);
 }
 
-catBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    catBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    applyFilter();
-  });
+/* ============================================================
+   Firebase 데이터 로드
+============================================================ */
+db.ref('stories').on('value', snapshot => {
+  const raw = snapshot.val();
+  if (!raw) {
+    document.getElementById('storyLoading').style.display = 'none';
+    document.getElementById('storyNoResult').classList.remove('d-none');
+    return;
+  }
+
+  allStories = Object.keys(raw).map(key => ({ id: key, ...raw[key] }));
+  applyFilterAndSort();
+}, error => {
+  console.error('Firebase 로드 오류:', error);
+  document.getElementById('storyLoading').innerHTML =
+    '<p class="text-danger">데이터를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.</p>';
 });
 
-document.getElementById('storySearch').addEventListener('input', applyFilter);
+/* ============================================================
+   componentsReady: UI 이벤트 바인딩
+============================================================ */
+document.addEventListener('componentsReady', function () {
 
-// ── 정렬 ──
-document.querySelectorAll('.sort-option').forEach(opt => {
-  opt.addEventListener('click', () => {
-    document.querySelectorAll('.sort-option').forEach(o => o.classList.remove('active'));
-    opt.classList.add('active');
-    document.getElementById('sortDropdown').textContent = opt.dataset.sort + ' ';
-    const chevron = document.createElement('span');
-    document.getElementById('sortDropdown').textContent = opt.dataset.sort;
+  // 카테고리 필터
+  document.querySelectorAll('#storyCategoryTabs .filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#storyCategoryTabs .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilterAndSort();
+    });
   });
-});
 
-// ── 페이지네이션 ──
-let currentPage = 1;
-const totalPages = 5;
+  // 검색
+  document.getElementById('storySearch').addEventListener('input', applyFilterAndSort);
 
-function updatePagination() {
-  document.getElementById('mobilePageInfo').textContent = currentPage + ' / ' + totalPages;
+  // 정렬
+  document.querySelectorAll('.sort-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.sort-option').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      currentSort = opt.dataset.sort;
+      document.getElementById('sortDropdown').textContent =
+        opt.dataset.sort === 'latest' ? '최신순' :
+        opt.dataset.sort === 'likes'  ? '공감순' : '조회순';
+      applyFilterAndSort();
+    });
+  });
+
+  // 페이지네이션 (현재는 UI 토글만 - 실제 페이징은 데이터 증가 시 구현)
+  let currentPage = 1;
+  const totalPages = 5;
+
+  function updatePagination() {
+    document.getElementById('mobilePageInfo').textContent = currentPage + ' / ' + totalPages;
+    document.querySelectorAll('#pageNums .page-btn').forEach(btn => {
+      btn.classList.toggle('active', +btn.dataset.page === currentPage);
+    });
+    document.getElementById('prevPage').disabled = currentPage === 1;
+    document.getElementById('nextPage').disabled = currentPage === totalPages;
+  }
+
+  document.getElementById('prevPage').addEventListener('click', () => {
+    if (currentPage > 1) { currentPage--; updatePagination(); }
+  });
+  document.getElementById('nextPage').addEventListener('click', () => {
+    if (currentPage < totalPages) { currentPage++; updatePagination(); }
+  });
   document.querySelectorAll('#pageNums .page-btn').forEach(btn => {
-    btn.classList.toggle('active', +btn.dataset.page === currentPage);
+    btn.addEventListener('click', () => {
+      currentPage = +btn.dataset.page;
+      updatePagination();
+    });
   });
-  document.getElementById('prevPage').disabled = currentPage === 1;
-  document.getElementById('nextPage').disabled = currentPage === totalPages;
-}
 
-document.getElementById('prevPage').addEventListener('click', () => {
-  if (currentPage > 1) { currentPage--; updatePagination(); }
-});
-document.getElementById('nextPage').addEventListener('click', () => {
-  if (currentPage < totalPages) { currentPage++; updatePagination(); }
-});
-document.querySelectorAll('#pageNums .page-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    currentPage = +btn.dataset.page;
-    updatePagination();
-  });
 });
 </script>
 </body>

@@ -3,68 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="중독회음이음센터 - 알코올, 도박, 인터넷, 게임 중독 회복을 위한 커뮤니티와 전문 정보를 제공합니다." />
-  <title>중독회음이음센터</title>
-
-  <!-- Google Fonts: Noto Sans KR -->
+  <meta name="description" content="중독이음센터 - 알코올, 도박, 인터넷, 게임 중독 회복을 위한 커뮤니티와 전문 정보를 제공합니다." />
+  <title>중독이음센터</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<!-- ════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════ -->
-<nav id="mainNav" class="navbar navbar-expand-md fixed-top py-0">
-  <div class="container-xl px-4">
-    <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center gap-2 py-3" href="#hero">
-      <div class="brand-icon">
-        <!-- Sprout icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-             stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 20h10"/>
-          <path d="M10 20c5.5-2.5.8-6.4 3-9"/>
-          <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-2-3.7.7-.1 3.3-.2 4.5.3z"/>
-          <path d="M14.1 6a7 7 0 0 1 1.7 4.8c-1.6.5-4 .6-5.4-.6-.3-2 1.5-3.5 3.7-4.2z"/>
-        </svg>
-      </div>
-      <span class="brand-name">중독회음이음센터</span>
-    </a>
-
-    <!-- Hamburger toggle -->
-    <button class="navbar-toggler border-0 p-2" type="button"
-            data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-            aria-controls="navbarMenu" aria-expanded="false" aria-label="메뉴 열기">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-           fill="none" stroke="#3D3D3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-
-    <!-- Nav Links -->
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="navbar-nav ms-auto align-items-md-center mb-3 mb-md-0">
-        <li class="nav-item"><a class="nav-link" href="recovery-info.html">회복정보</a></li>
-        <li class="nav-item"><a class="nav-link" href="#community">커뮤니티</a></li>
-        <li class="nav-item"><a class="nav-link" href="#resources">전문가상담</a></li>
-        <li class="nav-item"><a class="nav-link" href="success-stories.html">성공스토리</a></li>
-        <li class="nav-item ms-md-3">
-          <button class="btn-nav-cta">지금 시작하기</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<!-- ▼ 공통 헤더 (components.js가 자동 주입) -->
+<div id="site-header"></div>
 
 
 <!-- ════════════════════════════════════
@@ -75,31 +25,21 @@
   <div class="container-xl px-4 hero-content">
     <div class="row">
       <div class="col-12 col-md-7 col-lg-6">
-        <!-- Badge -->
         <div class="hero-badge fade-up">
           <span>💚</span>
           <span>판단 없이, 함께 회복해요</span>
         </div>
-
-        <!-- Headline -->
         <h1 class="fade-up fade-up-delay-1">
-          오늘 하루도<br />
-          잘 버텨냈어요
+          오늘 하루도<br />잘 버텨냈어요
         </h1>
-
-        <!-- Sub -->
         <p class="hero-sub fade-up fade-up-delay-2">
           알코올, 도박, 인터넷, 게임 중독에서 벗어나는 길,
           혼자가 아니에요. 회복을 경험한 사람들과 함께하세요.
         </p>
-
-        <!-- CTA Buttons -->
         <div class="d-flex flex-column flex-sm-row gap-3 fade-up fade-up-delay-3">
           <button class="btn-hero-primary">회복 시작하기</button>
           <button class="btn-hero-secondary">커뮤니티 둘러보기</button>
         </div>
-
-        <!-- Trust Indicators -->
         <div class="hero-trust fade-up fade-up-delay-4">
           <span class="d-flex align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -132,14 +72,11 @@
 ════════════════════════════════════ -->
 <section id="addiction-types">
   <div class="container-xl px-4">
-    <!-- Section Header -->
     <div class="text-center mb-5 fade-up">
       <p class="section-badge">회복 정보</p>
       <h2 class="section-title mb-3">어떤 중독이든, 여기서 시작해요</h2>
       <p class="section-desc">각 중독 유형에 맞는 전문 정보와 회복 경로를 제공합니다</p>
     </div>
-
-    <!-- Cards -->
     <div class="row g-4">
       <!-- 알코올 -->
       <div class="col-12 col-sm-6 col-lg-3 fade-up fade-up-delay-1">
@@ -157,11 +94,10 @@
           <div class="card-body-inner">
             <h3>알코올</h3>
             <p>건강한 음주 습관을 만들고 알코올 의존에서 벗어나는 방법을 안내합니다.</p>
-            <a href="#" class="card-link">자세히 보기 <span>→</span></a>
+            <a href="recovery-info.html" class="card-link">자세히 보기 <span>→</span></a>
           </div>
         </div>
       </div>
-
       <!-- 도박 -->
       <div class="col-12 col-sm-6 col-lg-3 fade-up fade-up-delay-2">
         <div class="addiction-card">
@@ -178,11 +114,10 @@
           <div class="card-body-inner">
             <h3>도박</h3>
             <p>도박 충동을 관리하고 재정적 회복을 위한 실질적인 도움을 제공합니다.</p>
-            <a href="#" class="card-link">자세히 보기 <span>→</span></a>
+            <a href="recovery-info.html" class="card-link">자세히 보기 <span>→</span></a>
           </div>
         </div>
       </div>
-
       <!-- 인터넷 -->
       <div class="col-12 col-sm-6 col-lg-3 fade-up fade-up-delay-3">
         <div class="addiction-card">
@@ -199,11 +134,10 @@
           <div class="card-body-inner">
             <h3>인터넷</h3>
             <p>디지털 디톡스와 건강한 온라인 습관 형성을 위한 가이드를 제공합니다.</p>
-            <a href="#" class="card-link">자세히 보기 <span>→</span></a>
+            <a href="recovery-info.html" class="card-link">자세히 보기 <span>→</span></a>
           </div>
         </div>
       </div>
-
       <!-- 게임 -->
       <div class="col-12 col-sm-6 col-lg-3 fade-up fade-up-delay-4">
         <div class="addiction-card">
@@ -221,7 +155,7 @@
           <div class="card-body-inner">
             <h3>게임</h3>
             <p>게임 과몰입에서 벗어나 균형 잡힌 일상을 되찾는 방법을 안내합니다.</p>
-            <a href="#" class="card-link">자세히 보기 <span>→</span></a>
+            <a href="recovery-info.html" class="card-link">자세히 보기 <span>→</span></a>
           </div>
         </div>
       </div>
@@ -235,106 +169,28 @@
 ════════════════════════════════════ -->
 <section id="how-it-works">
   <div class="container-xl px-4">
-    <!-- Header -->
     <div class="text-center mb-5 fade-up">
       <h2 class="section-title">회복은 이렇게 시작됩니다</h2>
     </div>
-
-    <!-- Desktop: Horizontal Steps -->
+    <!-- Desktop Steps -->
     <div class="steps-desktop fade-up">
       <div class="steps-track">
         <div class="steps-connector"></div>
-        <!-- Step 1 -->
-        <div class="step-item">
-          <div class="step-circle">1</div>
-          <p class="step-title">인식</p>
-          <p class="step-desc">내가 중독인지 스스로 확인해요</p>
-        </div>
-        <!-- Step 2 -->
-        <div class="step-item">
-          <div class="step-circle">2</div>
-          <p class="step-title">정보 탐색</p>
-          <p class="step-desc">신뢰할 수 있는 회복 정보를 찾아요</p>
-        </div>
-        <!-- Step 3 -->
-        <div class="step-item">
-          <div class="step-circle">3</div>
-          <p class="step-title">커뮤니티 참여</p>
-          <p class="step-desc">같은 경험을 가진 사람들과 연결돼요</p>
-        </div>
-        <!-- Step 4 -->
-        <div class="step-item">
-          <div class="step-circle">4</div>
-          <p class="step-title">전문가 연결</p>
-          <p class="step-desc">상담사 · 의료 전문가와 만나요</p>
-        </div>
-        <!-- Step 5 -->
-        <div class="step-item">
-          <div class="step-circle">5</div>
-          <p class="step-title">회복 유지</p>
-          <p class="step-desc">일상으로 돌아가 새 삶을 살아요</p>
-        </div>
+        <div class="step-item"><div class="step-circle">1</div><p class="step-title">인식</p><p class="step-desc">내가 중독인지 스스로 확인해요</p></div>
+        <div class="step-item"><div class="step-circle">2</div><p class="step-title">정보 탐색</p><p class="step-desc">신뢰할 수 있는 회복 정보를 찾아요</p></div>
+        <div class="step-item"><div class="step-circle">3</div><p class="step-title">커뮤니티 참여</p><p class="step-desc">같은 경험을 가진 사람들과 연결돼요</p></div>
+        <div class="step-item"><div class="step-circle">4</div><p class="step-title">전문가 연결</p><p class="step-desc">상담사 · 의료 전문가와 만나요</p></div>
+        <div class="step-item"><div class="step-circle">5</div><p class="step-title">회복 유지</p><p class="step-desc">일상으로 돌아가 새 삶을 살아요</p></div>
       </div>
     </div>
-
-    <!-- Mobile: Vertical Timeline -->
+    <!-- Mobile Steps -->
     <div class="steps-mobile">
-      <!-- Step 1 -->
-      <div class="step-row fade-up">
-        <div class="step-left">
-          <div class="step-circle">1</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-right">
-          <p class="step-title text-start">인식</p>
-          <p class="step-desc text-start">내가 중독인지 스스로 확인해요</p>
-        </div>
-      </div>
-      <!-- Step 2 -->
-      <div class="step-row fade-up fade-up-delay-1">
-        <div class="step-left">
-          <div class="step-circle">2</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-right">
-          <p class="step-title text-start">정보 탐색</p>
-          <p class="step-desc text-start">신뢰할 수 있는 회복 정보를 찾아요</p>
-        </div>
-      </div>
-      <!-- Step 3 -->
-      <div class="step-row fade-up fade-up-delay-2">
-        <div class="step-left">
-          <div class="step-circle">3</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-right">
-          <p class="step-title text-start">커뮤니티 참여</p>
-          <p class="step-desc text-start">같은 경험을 가진 사람들과 연결돼요</p>
-        </div>
-      </div>
-      <!-- Step 4 -->
-      <div class="step-row fade-up fade-up-delay-3">
-        <div class="step-left">
-          <div class="step-circle">4</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-right">
-          <p class="step-title text-start">전문가 연결</p>
-          <p class="step-desc text-start">상담사 · 의료 전문가와 만나요</p>
-        </div>
-      </div>
-      <!-- Step 5 -->
-      <div class="step-row fade-up fade-up-delay-4">
-        <div class="step-left">
-          <div class="step-circle">5</div>
-        </div>
-        <div class="step-right">
-          <p class="step-title text-start">회복 유지</p>
-          <p class="step-desc text-start">일상으로 돌아가 새 삶을 살아요</p>
-        </div>
-      </div>
+      <div class="step-row fade-up"><div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div><div class="step-right"><p class="step-title text-start">인식</p><p class="step-desc text-start">내가 중독인지 스스로 확인해요</p></div></div>
+      <div class="step-row fade-up fade-up-delay-1"><div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div><div class="step-right"><p class="step-title text-start">정보 탐색</p><p class="step-desc text-start">신뢰할 수 있는 회복 정보를 찾아요</p></div></div>
+      <div class="step-row fade-up fade-up-delay-2"><div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div><div class="step-right"><p class="step-title text-start">커뮤니티 참여</p><p class="step-desc text-start">같은 경험을 가진 사람들과 연결돼요</p></div></div>
+      <div class="step-row fade-up fade-up-delay-3"><div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div><div class="step-right"><p class="step-title text-start">전문가 연결</p><p class="step-desc text-start">상담사 · 의료 전문가와 만나요</p></div></div>
+      <div class="step-row fade-up fade-up-delay-4"><div class="step-left"><div class="step-circle">5</div></div><div class="step-right"><p class="step-title text-start">회복 유지</p><p class="step-desc text-start">일상으로 돌아가 새 삶을 살아요</p></div></div>
     </div>
-
   </div>
 </section>
 
@@ -344,10 +200,9 @@
 ════════════════════════════════════ -->
 <section id="community">
   <div class="container-xl px-4">
-    <!-- Header -->
     <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3 fade-up">
       <h2 class="section-title mb-0">함께 나누는 회복 이야기</h2>
-      <a href="#" class="d-flex align-items-center gap-1 text-decoration-none fw-semibold"
+      <a href="success-stories.html" class="d-flex align-items-center gap-1 text-decoration-none fw-semibold"
          style="color:var(--color-primary); font-size:15px;">
         커뮤니티 더보기
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -356,8 +211,6 @@
         </svg>
       </a>
     </div>
-
-    <!-- Cards -->
     <div class="row g-4 mb-5">
       <!-- Post 1 -->
       <div class="col-12 col-md-6 col-lg-4 fade-up fade-up-delay-1">
@@ -365,128 +218,61 @@
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="story-avatar">🌳</div>
             <div>
-              <p class="mb-0 fw-semibold" style="font-size:14px; color:var(--color-text);">익명의 나무🌱</p>
+              <p class="mb-0 fw-semibold" style="font-size:14px;">익명의 나무🌱</p>
               <p class="mb-0" style="font-size:12px; color:rgba(61,61,61,.5);">2시간 전</p>
             </div>
           </div>
-          <div class="mb-3">
-            <span class="category-badge cat-green">30일 달성</span>
-          </div>
+          <div class="mb-3"><span class="category-badge cat-green">30일 달성</span></div>
           <h3 class="story-title">30일을 버텼어요. 처음으로 가족이랑 같이 밥을 먹었습니다</h3>
-          <p class="story-preview">오늘로 술을 끊은지 정확히 30일이 되었습니다. 어제 저녁 가족들이랑 외식을 했는데, 술 생각이 안 나더라구요. 아내가 "요즘 많이 달라졌다"고 해주셨어요...</p>
+          <p class="story-preview">오늘로 술을 끊은지 정확히 30일이 되었습니다. 어제 저녁 가족들이랑 외식을 했는데, 술 생각이 안 나더라구요...</p>
           <div class="story-stats">
-            <span class="stat-heart d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="#E8A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
-              공감 23
-            </span>
-            <span class="stat-comment d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-              댓글 7
-            </span>
-            <span class="d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-              조회 142
-            </span>
+            <span class="stat-heart d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E8A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>공감 23</span>
+            <span class="stat-comment d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>댓글 7</span>
+            <span class="d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>조회 142</span>
           </div>
         </div>
       </div>
-
       <!-- Post 2 -->
       <div class="col-12 col-md-6 col-lg-4 fade-up fade-up-delay-2">
         <div class="story-card">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="story-avatar">🌸</div>
             <div>
-              <p class="mb-0 fw-semibold" style="font-size:14px; color:var(--color-text);">새로운시작✨</p>
+              <p class="mb-0 fw-semibold" style="font-size:14px;">새로운시작✨</p>
               <p class="mb-0" style="font-size:12px; color:rgba(61,61,61,.5);">5시간 전</p>
             </div>
           </div>
-          <div class="mb-3">
-            <span class="category-badge cat-orange">게임중독</span>
-          </div>
+          <div class="mb-3"><span class="category-badge cat-orange">게임중독</span></div>
           <h3 class="story-title">게임을 줄이고 싶은데 혼자서는 너무 힘들어요</h3>
-          <p class="story-preview">하루에 12시간씩 게임을 했었는데 이제는 정말 일상생활이 불가능합니다. 직장도 그만두고, 친구들도 다 떠났어요. 어디서부터 시작해야 할지 막막합니다...</p>
+          <p class="story-preview">하루에 12시간씩 게임을 했었는데 이제는 정말 일상생활이 불가능합니다. 직장도 그만두고, 친구들도 다 떠났어요...</p>
           <div class="story-stats">
-            <span class="stat-heart d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="#E8A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
-              공감 18
-            </span>
-            <span class="stat-comment d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-              댓글 12
-            </span>
-            <span class="d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-              조회 89
-            </span>
+            <span class="stat-heart d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E8A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>공감 18</span>
+            <span class="stat-comment d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>댓글 12</span>
+            <span class="d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>조회 89</span>
           </div>
         </div>
       </div>
-
       <!-- Post 3 -->
       <div class="col-12 col-md-6 col-lg-4 fade-up fade-up-delay-3">
         <div class="story-card">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="story-avatar">🌟</div>
             <div>
-              <p class="mb-0 fw-semibold" style="font-size:14px; color:var(--color-text);">희망의빛💫</p>
+              <p class="mb-0 fw-semibold" style="font-size:14px;">희망의빛💫</p>
               <p class="mb-0" style="font-size:12px; color:rgba(61,61,61,.5);">1일 전</p>
             </div>
           </div>
-          <div class="mb-3">
-            <span class="category-badge cat-blue">알코올 회복중</span>
-          </div>
+          <div class="mb-3"><span class="category-badge cat-blue">알코올 회복중</span></div>
           <h3 class="story-title">도박 빚을 다 갚았습니다. 2년 걸렸어요</h3>
-          <p class="story-preview">2년 전 이맘때 빚이 3천만원이었습니다. 오늘 마지막 이자까지 모두 갚았어요. 이 커뮤니티에서 만난 분들 덕분에 포기하지 않을 수 있었습니다. 감사합니다...</p>
+          <p class="story-preview">2년 전 이맘때 빚이 3천만원이었습니다. 오늘 마지막 이자까지 모두 갚았어요. 이 커뮤니티에서 만난 분들 덕분에 포기하지 않을 수 있었습니다...</p>
           <div class="story-stats">
-            <span class="stat-heart d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="#E8A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
-              공감 156
-            </span>
-            <span class="stat-comment d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-              댓글 34
-            </span>
-            <span class="d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-              조회 892
-            </span>
+            <span class="stat-heart d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E8A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>공감 156</span>
+            <span class="stat-comment d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>댓글 34</span>
+            <span class="d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>조회 892</span>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- CTA -->
     <div class="text-center fade-up">
       <button class="btn-community-more">커뮤니티 참여하기</button>
     </div>
@@ -499,41 +285,33 @@
 ════════════════════════════════════ -->
 <section id="about">
   <div class="container-xl px-4">
-    <!-- Stats -->
     <div class="row g-4 mb-0 text-center fade-up">
       <div class="col-6 col-lg-3 position-relative">
-        <div class="stat-number">12,400+</div>
-        <div class="stat-label">함께하는 회원</div>
+        <div class="stat-number">12,400+</div><div class="stat-label">함께하는 회원</div>
         <div class="stat-divider d-none d-lg-block position-absolute top-50 end-0 translate-middle-y"></div>
       </div>
       <div class="col-6 col-lg-3 position-relative">
-        <div class="stat-number">78%</div>
-        <div class="stat-label">6개월 내 회복 경험</div>
+        <div class="stat-number">78%</div><div class="stat-label">6개월 내 회복 경험</div>
         <div class="stat-divider d-none d-lg-block position-absolute top-50 end-0 translate-middle-y"></div>
       </div>
       <div class="col-6 col-lg-3 position-relative">
-        <div class="stat-number">4가지</div>
-        <div class="stat-label">중독 유형 전문 지원</div>
+        <div class="stat-number">4가지</div><div class="stat-label">중독 유형 전문 지원</div>
         <div class="stat-divider d-none d-lg-block position-absolute top-50 end-0 translate-middle-y"></div>
       </div>
       <div class="col-6 col-lg-3">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">커뮤니티 운영</div>
+        <div class="stat-number">24/7</div><div class="stat-label">커뮤니티 운영</div>
       </div>
     </div>
-
-    <!-- Quote -->
     <div class="quote-block fade-up">
       <div class="quote-icon text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="1.5"
-             stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
           <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
         </svg>
       </div>
       <blockquote class="quote-text">
-        처음엔 이곳에 오는 것만으로도 용기가 필요했어요.
+        처음엔 이곳에 오는 것만으로도 용기가 필요했어요.<br>
         지금은 제가 누군가를 돕고 있습니다.
       </blockquote>
       <p class="quote-author">— 알코올 회복 3년차, 익명의 회원</p>
@@ -558,109 +336,12 @@
 </section>
 
 
-<!-- ════════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
-<footer id="footer">
-  <div class="container-xl px-4">
-    <div class="row g-5 g-lg-4">
-      <!-- Col 1: 브랜드 -->
-      <div class="col-12 col-md-6 col-lg-3 text-center text-md-start">
-        <div class="footer-logo">중독회음이음센터</div>
-        <div class="footer-tagline mb-4">회복의 시작</div>
-        <div class="footer-social d-flex justify-content-center justify-content-md-start">
-          <!-- Instagram -->
-          <a href="#" aria-label="인스타그램">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
-          </a>
-          <!-- YouTube -->
-          <a href="#" aria-label="유튜브">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.97A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
-              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
-            </svg>
-          </a>
-          <!-- KakaoTalk -->
-          <a href="#" aria-label="카카오톡">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Col 2: 서비스 -->
-      <div class="col-6 col-lg-2 offset-lg-1">
-        <h5>서비스</h5>
-        <ul>
-          <li><a href="#addiction-types">회복정보</a></li>
-          <li><a href="#community">커뮤니티</a></li>
-          <li><a href="#resources">전문가상담</a></li>
-          <li><a href="#">자가진단</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: 도움말 -->
-      <div class="col-6 col-lg-2">
-        <h5>도움말</h5>
-        <ul>
-          <li><a href="#">공지사항</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">이용약관</a></li>
-          <li><a href="#">개인정보처리방침</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: 위기상담 -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="crisis-box">
-          <div class="d-flex align-items-start gap-2 mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                 fill="none" stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                 style="flex-shrink:0; margin-top:2px;">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.43 2 2 0 0 1 3.58 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-            <h5 class="mb-0">지금 당장 힘드신가요?</h5>
-          </div>
-          <p>24시간 무료 위기상담을 받으실 수 있습니다.</p>
-          <div>
-            <p class="crisis-label mb-1">정신건강위기상담전화</p>
-            <a href="tel:1577-0199" class="crisis-num">1577-0199</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom -->
-    <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-      <p class="mb-0">© 2024 중독회음이음센터. All rights reserved.</p>
-      <p class="mb-0 text-center" style="max-width:420px; font-size:11px;">
-        이 사이트는 의료 대체 서비스가 아닙니다. 심각한 증상이 있으시면 전문 의료기관을 방문해주세요.
-      </p>
-    </div>
-  </div>
-</footer>
+<!-- ▼ 공통 푸터 (components.js가 자동 주입) -->
+<div id="site-footer"></div>
 
 
-<!-- Back to Top Button -->
-<button id="backTop" aria-label="맨 위로">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-       stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"/>
-  </svg>
-</button>
-
-
-<!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom JS -->
+<script src="js/components.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
