@@ -221,60 +221,94 @@
       <!-- 댓글 목록 -->
       <div class="comment-list mt-4" id="commentList">
 
+        <!-- 댓글 1: 중첩 답글 포함 -->
         <div class="comment-item">
-          <div class="d-flex align-items-start gap-3">
-            <div class="comment-avatar">익</div>
-            <div class="flex-grow-1">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <span class="comment-author">익명의 나무</span>
-                <span class="comment-date">2026.01.16</span>
+          <div class="d-flex align-items-start justify-content-between gap-3">
+            <div class="d-flex align-items-start gap-2 flex-grow-1">
+              <div class="comment-avatar flex-shrink-0" style="background: linear-gradient(135deg,#6B9E7A,#5A8A68);">익</div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="comment-author">익명의 햇살🌞</span>
+                  <span class="comment-date">2026.02.11</span>
+                </div>
+                <p class="comment-text">정말 감동적인 이야기예요. 저도 포기하지 않을게요. 이 글을 읽으면서 많은 위로를 받았습니다. 함께 응원해요!</p>
+                <button class="comment-reply-btn">답글 달기</button>
+
+                <!-- 중첩 답글 -->
+                <div class="nested-reply">
+                  <div class="d-flex align-items-start gap-2">
+                    <div class="nested-avatar flex-shrink-0">익</div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex align-items-center gap-2 mb-1">
+                        <span class="comment-author" style="font-size:13px;">익명의 나무🌳</span>
+                        <span class="comment-date" style="font-size:11px;">2026.02.12</span>
+                      </div>
+                      <p class="comment-text" style="font-size:14px;">맞아요! 우리 모두 할 수 있어요. 응원합니다 💪</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p class="comment-text">정말 감동적이에요. 저도 비슷한 상황이었는데 이 글을 읽고 용기를 얻었습니다. 감사합니다.</p>
-              <button class="comment-like-btn">💚 12</button>
             </div>
+            <button class="comment-like-btn flex-shrink-0">💚 공감 12</button>
           </div>
         </div>
 
+        <!-- 댓글 2 -->
         <div class="comment-item">
-          <div class="d-flex align-items-start gap-3">
-            <div class="comment-avatar">익</div>
-            <div class="flex-grow-1">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <span class="comment-author">익명의 나무</span>
-                <span class="comment-date">2026.01.17</span>
+          <div class="d-flex align-items-start justify-content-between gap-3">
+            <div class="d-flex align-items-start gap-2 flex-grow-1">
+              <div class="comment-avatar flex-shrink-0" style="background: linear-gradient(135deg,#B39DDB,#9575CD);">익</div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="comment-author">익명의 별빛✨</span>
+                  <span class="comment-date">2026.02.13</span>
+                </div>
+                <p class="comment-text">가족분들이 돌아오셨다니 정말 축하드립니다. 저도 지금 회복 6개월 차인데, 이런 이야기를 들으면 힘이 나요. 감사합니다.</p>
+                <button class="comment-reply-btn">답글 달기</button>
               </div>
-              <p class="comment-text">2년이라는 시간... 정말 대단하십니다. 저는 이제 3개월째인데, 님의 이야기가 큰 힘이 됩니다.</p>
-              <button class="comment-like-btn">💚 8</button>
             </div>
+            <button class="comment-like-btn flex-shrink-0">💚 공감 28</button>
           </div>
         </div>
 
+        <!-- 댓글 3 -->
         <div class="comment-item">
-          <div class="d-flex align-items-start gap-3">
-            <div class="comment-avatar">익</div>
-            <div class="flex-grow-1">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <span class="comment-author">익명의 나무</span>
-                <span class="comment-date">2026.01.18</span>
+          <div class="d-flex align-items-start justify-content-between gap-3">
+            <div class="d-flex align-items-start gap-2 flex-grow-1">
+              <div class="comment-avatar flex-shrink-0" style="background: linear-gradient(135deg,#81C784,#66BB6A);">익</div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="comment-author">익명의 바람🍃</span>
+                  <span class="comment-date">2026.02.14</span>
+                </div>
+                <p class="comment-text">2년이라는 시간... 정말 대단하십니다. 하루하루가 전쟁 같으셨을 텐데, 끝까지 버티신 게 너무 멋져요. 저에게도 큰 용기가 됩니다!</p>
+                <button class="comment-reply-btn">답글 달기</button>
               </div>
-              <p class="comment-text">가족분들이 돌아오셨다니 정말 축하드려요. 회복은 혼자가 아니라는 걸 다시 한번 느낍니다.</p>
-              <button class="comment-like-btn">💚 15</button>
             </div>
+            <button class="comment-like-btn flex-shrink-0">💚 공감 35</button>
           </div>
         </div>
 
       </div><!-- /comment-list -->
-    </section>
 
-    <!-- ── 관련 스토리 ── -->
+      <!-- ① 댓글 더보기 버튼 -->
+      <div class="text-center mt-4">
+        <button class="btn-load-more-comments" id="loadMoreComments">
+          댓글 더보기 (40개)
+        </button>
+      </div>
+
+    </section><!-- /detail-comments -->
+
+    <!-- ② 함께 읽으면 좋은 이야기 -->
     <section class="detail-related fade-up">
-      <h3 class="detail-related-title">관련 스토리</h3>
+      <h3 class="detail-related-title">함께 읽으면 좋은 이야기</h3>
       <div class="row g-3">
         <div class="col-md-6">
           <a href="story-detail.html" class="related-card">
-            <span class="related-category">도박 회복</span>
+            <span class="related-category" style="background:#F3E5F5; color:#B39DDB;">도박 회복</span>
             <h4 class="related-title">도박 빚 3천만원을 다 갚았습니다. 2년 걸렸어요</h4>
-            <div class="d-flex justify-content-between text-muted" style="font-size:13px;">
+            <div class="d-flex justify-content-between" style="font-size:13px; color:#999;">
               <span>2026.02.08</span>
               <span>👁 892</span>
             </div>
@@ -282,9 +316,9 @@
         </div>
         <div class="col-md-6">
           <a href="story-detail.html" class="related-card">
-            <span class="related-category">알코올 회복</span>
+            <span class="related-category" style="background:#FFF3E0; color:#E8A87C;">알코올 회복</span>
             <h4 class="related-title">알코올과 작별하고 아이 학교 운동회에 참가했어요</h4>
-            <div class="d-flex justify-content-between text-muted" style="font-size:13px;">
+            <div class="d-flex justify-content-between" style="font-size:13px; color:#999;">
               <span>2026.02.01</span>
               <span>👁 1,234</span>
             </div>
@@ -293,8 +327,143 @@
       </div>
     </section>
 
+    <!-- ③ 내 이야기 작성하기 박스 -->
+    <div class="write-story-box fade-up">
+      <div class="write-story-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+             fill="none" stroke="#6B9E7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <h3 class="write-story-title">당신도 이야기를 나눠주세요</h3>
+      <p class="write-story-text">
+        회복의 여정은 혼자가 아닙니다.<br>
+        당신의 경험이 누군가에게 큰 용기가 됩니다.
+      </p>
+      <button class="btn-write-story">내 이야기 작성하기</button>
+    </div>
+
+    <!-- ④ 하단 버튼 영역 -->
+    <div class="detail-action-bar fade-up">
+      <!-- 목록보기 (왼쪽) -->
+      <a href="success-stories.html" class="btn-action-list">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        목록보기
+      </a>
+      <!-- 오른쪽 버튼 그룹 -->
+      <div class="btn-action-group">
+        <button class="btn-action-edit">✏️ 스토리 수정</button>
+        <button class="btn-action-write">✍️ 스토리 작성</button>
+      </div>
+    </div>
+
   </div><!-- /container -->
 </article>
+
+<!-- ════════════════════════════════════
+     ⑤ 비슷한 회복 이야기 (전체 너비 섹션)
+════════════════════════════════════ -->
+<section class="similar-stories-section">
+  <div class="container-xl px-4">
+    <div class="text-center mb-5">
+      <h2 class="similar-stories-title">비슷한 회복 이야기</h2>
+      <p class="similar-stories-sub">같은 경험을 나눈 분들의 이야기예요</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-4">
+        <a href="story-detail.html" class="similar-card fade-up">
+          <div class="similar-card-topbar" style="background:#E8A87C;"></div>
+          <div class="similar-card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="story-type-badge" style="background:#FFF3E0; color:#E8A87C;">알코올 회복</span>
+              <span class="story-recovery-badge">D+450</span>
+            </div>
+            <h3 class="similar-card-title">알코올과 작별하고 아이 학교 운동회에 참가했어요</h3>
+            <p class="similar-card-preview">매번 술 때문에 아이 학교 행사를 놓쳤습니다. 이번엔 맨 정신으로 운동회에 갔어요. 아이가 달려와서 안기던 순간, 정말 행복했습니다.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="story-avatar" style="background: linear-gradient(135deg,#E8A87C,#E8A87C);">익</div>
+                <span class="story-author">익명의 나무🌱</span>
+              </div>
+              <span class="story-date">2026.02.01</span>
+            </div>
+            <div class="story-stats">
+              <span>💚 공감 203</span>
+              <span class="text-muted">·</span>
+              <span>💬 댓글 47</span>
+              <span class="text-muted">·</span>
+              <span>👁 조회 1,234</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-4">
+        <a href="story-detail.html" class="similar-card fade-up fade-up-delay-1">
+          <div class="similar-card-topbar" style="background:#B39DDB;"></div>
+          <div class="similar-card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="story-type-badge" style="background:#F3E5F5; color:#B39DDB;">도박 회복</span>
+              <span class="story-recovery-badge">D+730</span>
+            </div>
+            <h3 class="similar-card-title">도박 빚 3천만원을 다 갚았습니다. 2년 걸렸어요</h3>
+            <p class="similar-card-preview">도박장에 발을 끊은 지 2년. 매달 조금씩 갚아나갔습니다. 어제 마지막 빚을 갚았어요. 통장에 처음으로 플러스가 찍혔습니다.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="story-avatar" style="background: linear-gradient(135deg,#B39DDB,#B39DDB);">익</div>
+                <span class="story-author">익명의 나무🌱</span>
+              </div>
+              <span class="story-date">2026.02.08</span>
+            </div>
+            <div class="story-stats">
+              <span>💚 공감 127</span>
+              <span class="text-muted">·</span>
+              <span>💬 댓글 34</span>
+              <span class="text-muted">·</span>
+              <span>👁 조회 892</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-4">
+        <a href="story-detail.html" class="similar-card fade-up fade-up-delay-2">
+          <div class="similar-card-topbar" style="background:#E8A87C;"></div>
+          <div class="similar-card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="story-type-badge" style="background:#FFF3E0; color:#E8A87C;">알코올 회복</span>
+              <span class="story-recovery-badge">D+730</span>
+            </div>
+            <h3 class="similar-card-title">30일을 버텼어요. 가족이랑 처음으로 같이 밥을 먹었습니다</h3>
+            <p class="similar-card-preview">하루하루가 전쟁 같았습니다. 술 생각이 날 때마다 이 커뮤니티에 와서 글을 읽었어요. 오늘 드디어 30일을 채웠고, 가족들과 외식을 했습니다.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="story-avatar" style="background: linear-gradient(135deg,#E8A87C,#E8A87C);">익</div>
+                <span class="story-author">익명의 나무🌱</span>
+              </div>
+              <span class="story-date">2026.02.10</span>
+            </div>
+            <div class="story-stats">
+              <span>💚 공감 48</span>
+              <span class="text-muted">·</span>
+              <span>💬 댓글 12</span>
+              <span class="text-muted">·</span>
+              <span>👁 조회 324</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div><!-- /row -->
+  </div><!-- /container -->
+</section>
 
 <!-- ════════════════════════════════════
      FOOTER

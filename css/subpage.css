@@ -707,10 +707,227 @@
   color: #fff;
 }
 
+/* ══════════════════════════════════════
+   추가 댓글 스타일 (답글 / 더보기)
+══════════════════════════════════════ */
+.comment-reply-btn {
+  background: none; border: none; padding: 0;
+  font-size: 13px; color: var(--color-primary);
+  cursor: pointer;
+  font-family: var(--font-main);
+  margin-top: 4px;
+  text-decoration: none;
+  transition: text-decoration .15s;
+}
+.comment-reply-btn:hover { text-decoration: underline; }
+
+/* 중첩 답글 */
+.nested-reply {
+  margin-left: 48px;
+  margin-top: 12px;
+  background: #FAFAFA;
+  border-radius: 8px;
+  padding: 12px;
+}
+.nested-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E8A87C, #D4956C);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 500; color: #fff;
+  flex-shrink: 0;
+}
+
+/* 댓글 더보기 버튼 */
+.btn-load-more-comments {
+  background: #fff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 50px;
+  padding: 12px 36px;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background .2s, color .2s;
+}
+.btn-load-more-comments:hover {
+  background: var(--color-bg-green);
+}
+
+/* ══════════════════════════════════════
+   내 이야기 작성하기 박스
+══════════════════════════════════════ */
+.write-story-box {
+  margin-top: 48px;
+  padding: 40px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #F0F7F2 0%, #FFF8F0 100%);
+  border: 1px solid rgba(107,158,122,.20);
+  text-align: center;
+}
+.write-story-icon {
+  width: 64px; height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: rgba(107,158,122,.10);
+  display: flex; align-items: center; justify-content: center;
+}
+.write-story-title {
+  font-size: 20px; font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.write-story-text {
+  font-size: 15px; color: #666;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.btn-write-story {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-size: 15px; font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background .2s, transform .2s;
+  box-shadow: 0 4px 16px rgba(107,158,122,.30);
+}
+.btn-write-story:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════
+   하단 버튼 영역
+══════════════════════════════════════ */
+.detail-action-bar {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  gap: 12px;
+  border-top: 1px solid #E0E0E0;
+  padding: 40px 0;
+  margin-top: 40px;
+}
+@media (min-width: 576px) {
+  .detail-action-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.btn-action-list {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px;
+  background: #fff;
+  color: #666;
+  border: 1px solid #E0E0E0;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 15px; font-weight: 500;
+  text-decoration: none;
+  transition: color .2s, border-color .2s;
+  font-family: var(--font-main);
+}
+.btn-action-list:hover { color: var(--color-primary); border-color: var(--color-primary); }
+.btn-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 576px) {
+  .btn-action-group { flex-direction: row; }
+}
+.btn-action-edit {
+  background: #fff;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 15px; font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background .2s;
+}
+.btn-action-edit:hover { background: var(--color-bg-green); }
+.btn-action-write {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 15px; font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background .2s, transform .2s;
+}
+.btn-action-write:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════
+   비슷한 회복 이야기 섹션
+══════════════════════════════════════ */
+.similar-stories-section {
+  background: #F8F8F8;
+  padding: 64px 0;
+}
+.similar-stories-title {
+  font-size: 22px; font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+.similar-stories-sub {
+  font-size: 14px; color: #888;
+  margin-bottom: 0;
+}
+.similar-card {
+  display: flex; flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+  overflow: hidden;
+  text-decoration: none; color: inherit;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  height: 100%;
+}
+.similar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.10);
+  border-color: rgba(107,158,122,.3);
+}
+.similar-card-topbar { width: 100%; height: 8px; flex-shrink: 0; }
+.similar-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.similar-card-title {
+  font-size: 16px; font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.similar-card-preview {
+  font-size: 13px; color: #777; line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
 /* ── Responsive ── */
 @media (max-width: 991px) {
   .sticky-sidebar { position: static; }
   .detail-article { padding: 32px 20px 60px; }
+  .nested-reply { margin-left: 24px; }
 }
 @media (max-width: 575px) {
   .subpage-hero { padding: 60px 0 40px; }
@@ -718,4 +935,6 @@
   .detail-title { font-size: 24px; }
   .detail-pullquote { font-size: 16px; }
   .detail-body { font-size: 16px; }
+  .write-story-box { padding: 28px 20px; }
+  .similar-stories-section { padding: 48px 0; }
 }
