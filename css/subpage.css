@@ -279,6 +279,51 @@
 .stories-stat-value { font-size: 20px; font-weight: 700; color: var(--color-primary); }
 .stories-stat-label { font-size: 13px; color: #666; }
 
+/* ── Filterbar Layout ── */
+.filterbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.filterbar-cats {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-bottom: 2px;
+  /* 스크롤바 숨김 */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.filterbar-cats::-webkit-scrollbar { display: none; }
+.filterbar-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* 모바일: 세로 스택 */
+@media (max-width: 767px) {
+  .filterbar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .filterbar-cats {
+    order: 1;
+  }
+  .filterbar-search {
+    order: 2;
+    width: 100%;
+  }
+  .filterbar-search .search-box-wrap {
+    flex: 1;
+  }
+}
+
 /* ── Search Box ── */
 .search-box-wrap {
   position: relative;
@@ -290,7 +335,7 @@
   color: #888; pointer-events: none;
 }
 .search-input {
-  width: 100%;
+  width: 240px;
   height: 44px;
   padding: 0 16px 0 42px;
   border: 1px solid #E0E0E0;
@@ -305,8 +350,8 @@
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(107,158,122,.15);
 }
-@media (min-width: 992px) {
-  .search-input { width: 280px; }
+@media (max-width: 767px) {
+  .search-input { width: 100%; }
 }
 
 /* ── Sort Button ── */

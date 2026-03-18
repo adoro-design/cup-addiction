@@ -137,10 +137,10 @@
 ════════════════════════════════════ -->
 <div class="filter-bar-sticky" id="storyFilterBar">
   <div class="container-xl px-4">
-    <div class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center justify-content-between">
+    <div class="filterbar-inner">
 
-      <!-- Category Tabs -->
-      <div class="d-flex gap-2 overflow-auto pb-1" id="storyCategoryTabs">
+      <!-- 왼쪽: 카테고리 탭 -->
+      <div class="filterbar-cats" id="storyCategoryTabs">
         <button class="filter-btn active" data-cat="전체">전체</button>
         <button class="filter-btn" data-cat="알코올">알코올</button>
         <button class="filter-btn" data-cat="도박">도박</button>
@@ -149,9 +149,9 @@
         <button class="filter-btn" data-cat="복합중독">복합중독</button>
       </div>
 
-      <!-- Search + Sort -->
-      <div class="d-flex gap-2 w-100 w-lg-auto">
-        <div class="search-box-wrap flex-grow-1 flex-lg-grow-0">
+      <!-- 오른쪽: 검색 + 정렬 -->
+      <div class="filterbar-search">
+        <div class="search-box-wrap">
           <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -169,6 +169,7 @@
           </ul>
         </div>
       </div>
+
     </div>
   </div>
 </div>
