@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="중독이음센터 - 당신의 회복 이야기를 나눠주세요." />
+  <title>이야기 등록 | 중독이음센터</title>
+
+  <!-- Google Fonts: Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Firebase Compat SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/subpage.css" />
+</head>
+<body>
+
+<!-- 공통 헤더 플레이스홀더 -->
+<div id="site-header"></div>
+
+<!-- ════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════ -->
+<section class="write-hero">
+  <div class="container-xl px-4">
+    <div class="text-center">
+      <!-- Sparkles Icon -->
+      <div class="write-hero-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5z"/>
+          <path d="M5 17l.7 1.6L7 20l-1.3.4L5 22l-.7-1.6L3 20l1.3-.4z"/>
+          <path d="M20 3l.7 1.6L22 6l-1.3.4L20 8l-.7-1.6L18 6l1.3-.4z"/>
+        </svg>
+      </div>
+      <h1 class="write-hero-title fade-up">당신의 이야기를 들려주세요</h1>
+      <p class="write-hero-sub fade-up fade-up-delay-1">당신의 경험이 누군가에게 희망의 빛이 될 수 있습니다</p>
+      <!-- 격려 알약 -->
+      <div class="write-hero-pills fade-up fade-up-delay-2">
+        <span class="write-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          익명으로 안전하게
+        </span>
+        <span class="write-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          판단 없이 따뜻하게
+        </span>
+        <span class="write-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+          함께 성장하며
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FORM SECTION
+════════════════════════════════════ -->
+<section class="py-5" style="padding-bottom: 6rem !important;">
+  <div class="container-xl px-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-7">
+
+        <form id="writeStoryForm" class="write-form-card" novalidate>
+
+          <!-- ── 1. 중독 유형 ── -->
+          <div class="write-field-group">
+            <label class="write-field-label">
+              중독 유형
+              <span class="write-required">*</span>
+            </label>
+            <div class="cat-grid" id="catGrid">
+              <button type="button" class="cat-radio-btn" data-cat="알코올">
+                <span class="cat-emoji">🥤</span>
+                <span class="cat-name">알코올</span>
+              </button>
+              <button type="button" class="cat-radio-btn" data-cat="도박">
+                <span class="cat-emoji">🎲</span>
+                <span class="cat-name">도박</span>
+              </button>
+              <button type="button" class="cat-radio-btn" data-cat="인터넷">
+                <span class="cat-emoji">📱</span>
+                <span class="cat-name">인터넷</span>
+              </button>
+              <button type="button" class="cat-radio-btn" data-cat="게임">
+                <span class="cat-emoji">🎮</span>
+                <span class="cat-name">게임</span>
+              </button>
+              <button type="button" class="cat-radio-btn" data-cat="복합중독">
+                <span class="cat-emoji">🔄</span>
+                <span class="cat-name">복합중독</span>
+              </button>
+              <button type="button" class="cat-radio-btn" data-cat="기타">
+                <span class="cat-emoji">❓</span>
+                <span class="cat-name">기타</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ── 2. 회복 기간 ── -->
+          <div class="write-field-group">
+            <label class="write-field-label">
+              회복 기간
+              <span class="write-required">*</span>
+            </label>
+            <div class="recovery-period-wrap">
+              <div class="recovery-input-row">
+                <input type="number" id="recoveryAmount" class="recovery-num-input"
+                       min="1" max="999" placeholder="숫자" />
+                <div class="unit-pills" id="unitPills">
+                  <button type="button" class="unit-pill active" data-unit="일" data-mult="1">일</button>
+                  <button type="button" class="unit-pill" data-unit="개월" data-mult="30">개월</button>
+                  <button type="button" class="unit-pill" data-unit="년" data-mult="365">년</button>
+                </div>
+                <div class="dplus-badge" id="dplusBadge">D+<span id="dplusValue">?</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── 3. 제목 ── -->
+          <div class="write-field-group">
+            <label class="write-field-label" for="storyTitle">
+              제목
+              <span class="write-required">*</span>
+            </label>
+            <div class="write-input-wrap">
+              <input type="text" id="storyTitle" class="write-text-input"
+                     placeholder="회복의 여정을 한 문장으로 표현해보세요"
+                     maxlength="50" />
+              <div class="char-counter"><span id="titleCount">0</span>/50</div>
+            </div>
+          </div>
+
+          <!-- ── 4. 스토리 본문 ── -->
+          <div class="write-field-group">
+            <label class="write-field-label">
+              스토리 본문
+              <span class="write-required">*</span>
+              <span class="write-hint">(최소 100자)</span>
+            </label>
+            <div class="write-editor-wrap" id="editorWrap">
+              <!-- 툴바 -->
+              <div class="editor-toolbar">
+                <button type="button" class="toolbar-btn" title="굵게" onclick="applyFormat('bold')">
+                  <strong>B</strong>
+                </button>
+                <button type="button" class="toolbar-btn" title="기울임" onclick="applyFormat('italic')">
+                  <em>I</em>
+                </button>
+                <button type="button" class="toolbar-btn" title="밑줄" onclick="applyFormat('underline')">
+                  <u>U</u>
+                </button>
+                <div class="toolbar-divider"></div>
+                <button type="button" class="toolbar-btn" title="인용구" onclick="insertQuote()">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                  </svg>
+                </button>
+                <button type="button" class="toolbar-btn" title="이미지 첨부" onclick="document.getElementById('imageUpload').click()">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </button>
+              </div>
+              <textarea id="storyContent" class="write-textarea"
+                        placeholder="당신의 회복 이야기를 자유롭게 적어주세요. 힘들었던 순간, 변화의 계기, 지금의 모습... 모든 이야기가 소중합니다."
+                        maxlength="3000"></textarea>
+              <div class="editor-footer">
+                <span class="char-counter"><span id="contentCount">0</span>/3000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── 5. 이미지 첨부 ── -->
+          <div class="write-field-group">
+            <label class="write-field-label">이미지 첨부 <span class="write-optional">(선택)</span></label>
+            <div class="image-upload-area" id="imageUploadArea">
+              <input type="file" id="imageUpload" accept="image/*" style="display:none" />
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="upload-icon">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+              <p class="upload-label">이미지를 드래그하거나 클릭하여 업로드</p>
+              <p class="upload-hint">JPG, PNG, GIF · 최대 5MB</p>
+              <div id="uploadedFileName" class="upload-filename d-none"></div>
+            </div>
+          </div>
+
+          <!-- ── 6. 공개 설정 ── -->
+          <div class="write-field-group">
+            <label class="write-field-label">공개 설정</label>
+            <div class="visibility-grid">
+              <div class="visibility-card active" data-vis="public" id="visPublic">
+                <div class="visibility-check" id="checkPublic">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="visibility-icon">🌍</span>
+                <div>
+                  <div class="visibility-title">전체공개</div>
+                  <div class="visibility-desc">모든 방문자가 볼 수 있습니다</div>
+                </div>
+              </div>
+              <div class="visibility-card" data-vis="members" id="visMembers">
+                <div class="visibility-check" id="checkMembers" style="opacity:0;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="visibility-icon">🔒</span>
+                <div>
+                  <div class="visibility-title">회원공개</div>
+                  <div class="visibility-desc">로그인한 회원만 볼 수 있습니다</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── 유효성 힌트 ── -->
+          <div id="validationHint" class="validation-hint d-none">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span id="hintText">모든 필수 항목을 입력해주세요.</span>
+          </div>
+
+          <!-- ── 액션 버튼 ── -->
+          <div class="write-actions">
+            <button type="button" class="btn-write-cancel" onclick="location.href='success-stories.html'">
+              취소
+            </button>
+            <button type="submit" class="btn-write-submit" id="submitBtn" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              이야기 등록하기
+            </button>
+          </div>
+
+        </form>
+
+        <!-- ── 하단 격려 문구 ── -->
+        <div class="write-encouragement">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <p class="write-encouragement-text">당신의 용기에 감사드려요</p>
+          <p class="write-encouragement-sub">이야기를 나눠주셔서 감사합니다. 당신의 경험이 다른 이들에게 큰 힘이 됩니다.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 공통 푸터 플레이스홀더 -->
+<div id="site-footer"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- 공통 컴포넌트 (nav · footer · backTop 주입) -->
+<script src="js/components.js"></script>
+<!-- 공통 인터랙션 -->
+<script src="js/main.js"></script>
+
+<script>
+// ── Firebase 초기화 ──
+const firebaseConfig = {
+  apiKey: "AIzaSyCTHYzNqsDHUSi63_gy89HHQWPXvLmtlTk",
+  authDomain: "cup-addiction.firebaseapp.com",
+  databaseURL: "https://cup-addiction-default-rtdb.firebaseio.com",
+  projectId: "cup-addiction",
+  storageBucket: "cup-addiction.firebasestorage.app",
+  messagingSenderId: "151983189527",
+  appId: "1:151983189527:web:cf6e97c5ae3a9473a0f652",
+  measurementId: "G-6FSH90LSYP"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// ── 상태 ──
+let selectedCat = '';
+let selectedUnit = '일';
+let selectedMult = 1;
+let selectedVis = 'public';
+
+// ── 카테고리 선택 ──
+document.querySelectorAll('.cat-radio-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-radio-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedCat = btn.dataset.cat;
+    validateForm();
+  });
+});
+
+// ── 단위 토글 ──
+document.querySelectorAll('.unit-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.unit-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    selectedUnit = pill.dataset.unit;
+    selectedMult = parseInt(pill.dataset.mult);
+    updateDplus();
+    validateForm();
+  });
+});
+
+// ── 회복 기간 숫자 입력 ──
+document.getElementById('recoveryAmount').addEventListener('input', () => {
+  updateDplus();
+  validateForm();
+});
+
+function updateDplus() {
+  const amount = parseInt(document.getElementById('recoveryAmount').value) || 0;
+  const days = amount * selectedMult;
+  const el = document.getElementById('dplusValue');
+  if (amount > 0) {
+    el.textContent = days.toLocaleString();
+    document.getElementById('dplusBadge').classList.add('active');
+  } else {
+    el.textContent = '?';
+    document.getElementById('dplusBadge').classList.remove('active');
+  }
+}
+
+// ── 제목 글자수 ──
+document.getElementById('storyTitle').addEventListener('input', function() {
+  document.getElementById('titleCount').textContent = this.value.length;
+  validateForm();
+});
+
+// ── 본문 글자수 + 에디터 포커스 ──
+const contentEl = document.getElementById('storyContent');
+const editorWrap = document.getElementById('editorWrap');
+
+contentEl.addEventListener('input', function() {
+  document.getElementById('contentCount').textContent = this.value.length;
+  validateForm();
+});
+contentEl.addEventListener('focus', () => editorWrap.classList.add('focused'));
+contentEl.addEventListener('blur', () => editorWrap.classList.remove('focused'));
+
+// ── 툴바 포맷 ──
+function applyFormat(cmd) {
+  contentEl.focus();
+  document.execCommand(cmd); // textarea에선 작동 안 하므로 시각 효과만
+}
+function insertQuote() {
+  const start = contentEl.selectionStart;
+  const end = contentEl.selectionEnd;
+  const text = contentEl.value;
+  const selected = text.substring(start, end) || '인용문을 입력하세요';
+  const quote = '\n"' + selected + '"\n';
+  contentEl.value = text.substring(0, start) + quote + text.substring(end);
+  contentEl.selectionStart = contentEl.selectionEnd = start + quote.length;
+  document.getElementById('contentCount').textContent = contentEl.value.length;
+  validateForm();
+}
+
+// ── 이미지 업로드 UI ──
+const uploadInput = document.getElementById('imageUpload');
+const uploadArea = document.getElementById('imageUploadArea');
+
+uploadArea.addEventListener('click', () => uploadInput.click());
+uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+uploadArea.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadArea.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) handleFile(file);
+});
+uploadInput.addEventListener('change', () => {
+  if (uploadInput.files[0]) handleFile(uploadInput.files[0]);
+});
+function handleFile(file) {
+  const nameEl = document.getElementById('uploadedFileName');
+  nameEl.textContent = '📎 ' + file.name;
+  nameEl.classList.remove('d-none');
+}
+
+// ── 공개 설정 ──
+document.getElementById('visPublic').addEventListener('click', () => setVisibility('public'));
+document.getElementById('visMembers').addEventListener('click', () => setVisibility('members'));
+
+function setVisibility(val) {
+  selectedVis = val;
+  document.querySelectorAll('.visibility-card').forEach(c => c.classList.remove('active'));
+  document.getElementById(val === 'public' ? 'visPublic' : 'visMembers').classList.add('active');
+  document.getElementById('checkPublic').style.opacity = val === 'public' ? '1' : '0';
+  document.getElementById('checkMembers').style.opacity = val === 'members' ? '1' : '0';
+}
+
+// ── 폼 유효성 ──
+function validateForm() {
+  const amount = parseInt(document.getElementById('recoveryAmount').value) || 0;
+  const title = document.getElementById('storyTitle').value.trim();
+  const content = document.getElementById('storyContent').value.trim();
+
+  const ok = selectedCat !== '' && amount > 0 && title.length > 0 && content.length >= 100;
+  document.getElementById('submitBtn').disabled = !ok;
+
+  if (!ok) {
+    const hintEl = document.getElementById('validationHint');
+    const hintText = document.getElementById('hintText');
+    let msg = '';
+    if (!selectedCat) msg = '중독 유형을 선택해주세요.';
+    else if (amount <= 0) msg = '회복 기간을 입력해주세요.';
+    else if (!title) msg = '제목을 입력해주세요.';
+    else if (content.length < 100) msg = `본문을 최소 100자 이상 작성해주세요. (현재 ${content.length}자)`;
+    hintText.textContent = msg;
+    hintEl.classList.toggle('d-none', msg === '');
+  } else {
+    document.getElementById('validationHint').classList.add('d-none');
+  }
+}
+
+// ── 제출 ──
+document.getElementById('writeStoryForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '등록 중...';
+
+  const amount = parseInt(document.getElementById('recoveryAmount').value);
+  const days = amount * selectedMult;
+  const title = document.getElementById('storyTitle').value.trim();
+  const content = document.getElementById('storyContent').value.trim();
+
+  // 익명 닉네임 자동 생성
+  const nicknames = ['나무', '별빛', '새벽', '햇살', '이슬', '바람', '구름', '강물', '꽃잎', '씨앗'];
+  const randomNick = nicknames[Math.floor(Math.random() * nicknames.length)] + Math.floor(Math.random() * 9000 + 1000);
+
+  // 카테고리별 색상
+  const catColors = {
+    '알코올': '#6B9E7A', '도박': '#B39DDB', '인터넷': '#81D4FA',
+    '게임': '#A5D6A7', '복합중독': '#FFCC80', '기타': '#F48FB1'
+  };
+
+  const now = new Date();
+  const dateStr = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
+
+  const newStory = {
+    category: selectedCat,
+    badgeText: selectedCat,
+    badgeColor: catColors[selectedCat] || '#6B9E7A',
+    topbarColor: catColors[selectedCat] || '#6B9E7A',
+    recoveryDay: 'D+' + days.toLocaleString(),
+    recoveryDays: days,
+    title: title,
+    preview: content.substring(0, 80) + (content.length > 80 ? '...' : ''),
+    lead: content.substring(0, 200),
+    body1: content,
+    quote: '',
+    body2: '',
+    body3: '',
+    imgCaption: '',
+    author: randomNick,
+    avatarColor: catColors[selectedCat] || '#6B9E7A',
+    date: dateStr,
+    likes: 0,
+    comments: 0,
+    views: 0,
+    visibility: selectedVis
+  };
+
+  try {
+    await db.ref('stories').push(newStory);
+    // 성공 → 목록 페이지로 이동
+    location.href = 'success-stories.html';
+  } catch (err) {
+    console.error('Firebase write error:', err);
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> 이야기 등록하기';
+    alert('등록 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+  }
+});
+</script>
+</body>
+</html>
